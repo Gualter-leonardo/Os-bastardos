@@ -51,3 +51,4 @@ tela.btn_cadastrar.clicked.connect(salvar_cadastro)
 tela.show()
 # Mantém o programa em execução
 app.exec()
+
