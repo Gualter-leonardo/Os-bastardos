@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WizardPage</class>
+ <widget class="QWizardPage" name="WizardPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WizardPage</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>10</y>
+     <width>711</width>
+     <height>961</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/senac/banner_senac.png);
+
+border: 2px solid blue;
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>90</y>
+     <width>691</width>
+     <height>861</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background-color: #1E3A5F; /* azul (fundo) */
+    border: 3px solid #0A1F44; /* azul escuro (borda) */
+    border-radius: 12px;       /* cantos arredondados */
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>100</y>
+      <width>461</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 15px;        /* deixa arredondado */
+    padding: 8px 16px;
+}
+
+QLabel {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border-radius: 15px;        /* cantos arredondados */
+    padding: 6px;               /* espaço interno */
+}</string>
+    </property>
+    <property name="text">
+     <string>              TELA PRINCIPAL </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_telacadastro">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>260</y>
+      <width>301</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 15px;        /* deixa arredondado */
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #4A7BD1;  /* um pouco mais escuro ao passar o mouse */
+}
+
+QPushButton:pressed {
+    background-color: #3A6EA5;  /* mais escuro ao clicar */
+}</string>
+    </property>
+    <property name="text">
+     <string>TELA CADASTRO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_calendario">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>370</y>
+      <width>301</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 15px;        /* deixa arredondado */
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #4A7BD1;  /* um pouco mais escuro ao passar o mouse */
+}
+
+QPushButton:pressed {
+    background-color: #3A6EA5;  /* mais escuro ao clicar */
+}</string>
+    </property>
+    <property name="text">
+     <string>CALENDÁRIO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_relatorio">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>490</y>
+      <width>301</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 15px;        /* deixa arredondado */
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #4A7BD1;  /* um pouco mais escuro ao passar o mouse */
+}
+
+QPushButton:pressed {
+    background-color: #3A6EA5;  /* mais escuro ao clicar */
+}</string>
+    </property>
+    <property name="text">
+     <string>RELATÓRIO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_legenda">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>610</y>
+      <width>301</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 15px;        /* deixa arredondado */
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #4A7BD1;  /* um pouco mais escuro ao passar o mouse */
+}
+
+QPushButton:pressed {
+    background-color: #3A6EA5;  /* mais escuro ao clicar */
+}</string>
+    </property>
+    <property name="text">
+     <string>LEGENDA</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
