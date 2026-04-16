@@ -302,7 +302,7 @@ QLineEdit:focus {
       <string>   POSIÇÃO</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txt_horasucs_2">
+    <widget class="QLineEdit" name="txt_posicao">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -350,7 +350,7 @@ QLineEdit:focus {
       <string>         UC</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txt_horasucs_3">
+    <widget class="QLineEdit" name="txt_nome_uc">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -374,7 +374,7 @@ QLineEdit:focus {
 }</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btn_cadastrar_uc">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -588,7 +588,7 @@ QLineEdit:focus {
      <string>TEMPO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_tempo">
+   <widget class="QLineEdit" name="txt_carga_horaria">
     <property name="geometry">
      <rect>
       <x>140</x>

@@ -2,36 +2,30 @@ import sys
 import mysql.connector
 from PyQt5 import uic, QtWidgets
 
-import conexao  # precisa ter conexao = mysql.connector.connect(...)
+import conexao
 
-def salvar_uc():
-    valor_combo = tela.comboBox.currentText()
+def carregar_cursos():
+    cursor = conexao.conexao.cursor()
 
-    cursor = conexao.conexao.cursor()  # pega conexão do arquivo conexao.py
-
-    comando = "SELECT * FROM cursos2 WHERE curso = %s"
-    cursor.execute(comando, (valor_combo,))
+    comando = "SELECT DISTINCT curso FROM cursos2"
+    cursor.execute(comando)
 
     resultados = cursor.fetchall()
-    print(resultados)
 
-    conexao.conexao.commit()
+    tela.comboBox.clear()
+
+    for curso in resultados:
+        tela.comboBox.addItem(curso[0])
+
     cursor.close()
-    conexao.conexao.close()
 
 
-# Inicialização da aplicação
-app = QtWidgets.QApplication([])
+app = QtWidgets.QApplication(sys.argv)  # ✅ PRIMEIRO
 
-# Carrega interface
-tela = uic.loadUi("tela/cadastrarcurso.ui")
+tela = uic.loadUi("tela/cadastrarcurso.ui")  # ✅ depois
 
-# Conecta botão
-tela.btn_cadastrar_uc.clicked.connect(salvar_uc)
+carregar_cursos()  # agora pode usar a tela
 
-# Mostra tela
 tela.show()
 
-app.exec()
-
-#tste
+sys.exit(app.exec_())  # ✅ inicia o loop

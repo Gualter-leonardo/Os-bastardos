@@ -1,7 +1,7 @@
 import sys
 import mysql.connector
 from PyQt5 import uic, QtWidgets
-import conexao 
+from conexao import conexao
 
 
 def salvar_uc():
@@ -9,15 +9,15 @@ def salvar_uc():
     
     horas_uc = tela.txt_horasucs.text()
     posicao = tela.txt_posicao.text()
-    uc= tela.txt_uc.text()
+    nome_uc= tela.txt_nome_uc.text()
 
  # Cria o cursor que executa comandos SQL
     cursor = conexao.cursor()
     # Comando SQL de inserção
-    comando = "INSERT INTO grade ( horas_uc, posicao, uc) VALUES (%s,%s,%s)"\
+    comando = "INSERT INTO grade ( horas_uc, posicao, nome_uc) VALUES (%s,%s,%s)"\
 
     # Valores que serão inseridos
-    dados = ( horas_uc, posicao ,uc)
+    dados = ( horas_uc, posicao ,nome_uc)
     # Executa o comando
     cursor.execute(comando, dados)
     # Confirma a alteração no banco
@@ -28,7 +28,7 @@ def salvar_uc():
     
     tela.txt_horasucs.setText("")
     tela.txt_posicao.setText("")
-    tela.txt_uc.setText("")
+    tela.txt_nome_uc.setText("")
 
 # Inicialização da aplicação
 app = QtWidgets.QApplication([])
