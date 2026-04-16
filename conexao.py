@@ -10,4 +10,3 @@ conexao = mysql.connector.connect(
     database="test"
 )
 
-cursor = conexao.cursor()

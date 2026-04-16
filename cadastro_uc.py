@@ -36,9 +36,6 @@ app = QtWidgets.QApplication([])
 tela = uic.loadUi("tela/cadastrarcurso.ui")
 # Conecta o botão salvar com a função salvar_aluno
 tela.btn_cadastrar_uc.clicked.connect(salvar_uc)
-# Mostra a tela
-tela.show()
-# Mantém o programa em execução
-app.exec()
+
      
     

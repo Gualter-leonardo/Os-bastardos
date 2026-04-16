@@ -17,13 +17,7 @@ def salvar_cadastro():
     quantidade_uc = tela.txt_quantidade.text()
     inicio = tela.txt_inicio.text()
 
-    # Conexão com o banco de dados MySQL
-    conexao = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="test"
-    )
+
     # Cria o cursor que executa comandos SQL
     cursor = conexao.cursor()
     # Comando SQL de inserção

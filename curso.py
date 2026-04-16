@@ -26,6 +26,4 @@ tela = uic.loadUi("tela/cadastrarcurso.ui")  # ✅ depois
 
 carregar_cursos()  # agora pode usar a tela
 
-tela.show()
 
-sys.exit(app.exec_())  # ✅ inicia o loop

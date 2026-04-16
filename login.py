@@ -29,7 +29,7 @@ def verificar_login():
         QtWidgets.QMessageBox.warning(tela, "Erro", "Usuario ou senha inválidos")
 
 app = QtWidgets.QApplication([])
-tela = uic.loadUi("login.ui")
+tela = uic.loadUi("tela/login.ui")
 tela.btn_login.clicked.connect(verificar_login)
 tela.show()
 app.exec()
