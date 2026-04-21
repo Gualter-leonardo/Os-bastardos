@@ -44,7 +44,7 @@ def salvar_cadastro():
 # Inicialização da aplicação
 app = QtWidgets.QApplication([])
 # Carrega a interface criada no QtDesigner
-tela = uic.loadUi("cadastrarcurso.ui")
+tela = uic.loadUi("tela/cadastrarcurso.ui")
 # Conecta o botão salvar com a função salvar_aluno
 tela.btn_cadastrar.clicked.connect(salvar_cadastro)
 # Mostra a tela
