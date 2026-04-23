@@ -1,11 +1,11 @@
 import sys
-import mysql.connector
 from PyQt5 import uic, QtWidgets
-
 import conexao
 
+
 def carregar_cursos():
-    cursor = conexao.conexao.cursor()
+    conn = conexao.conectar()
+    cursor = conn.cursor()
 
     comando = "SELECT DISTINCT curso FROM cursos2"
     cursor.execute(comando)
@@ -18,12 +18,14 @@ def carregar_cursos():
         tela.comboBox.addItem(curso[0])
 
     cursor.close()
+    conn.close()
 
 
-app = QtWidgets.QApplication(sys.argv)  # ✅ PRIMEIRO
+app = QtWidgets.QApplication(sys.argv)
 
-tela = uic.loadUi("tela/cadastrarcurso.ui")  # ✅ depois
+tela = uic.loadUi("tela/cadastrarcurso.ui")
 
-carregar_cursos()  # agora pode usar a tela
+carregar_cursos()
 
-
+tela.show()
+sys.exit(app.exec())

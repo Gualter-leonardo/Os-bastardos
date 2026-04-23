@@ -1,12 +1,11 @@
-import sys
 import mysql.connector
 
-from PyQt5 import uic, QtWidgets
-
-conexao = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="test"
-)
+def conectar():
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",   # coloque sua senha se tiver
+        database="seu_banco"
+    )
+    return conn
 
