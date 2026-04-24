@@ -5,7 +5,7 @@ def conectar():
         host="localhost",
         user="root",
         password="",   # coloque sua senha se tiver
-        database="seu_banco"
+        database="test"
     )
     return conn
 

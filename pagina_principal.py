@@ -1,46 +1,30 @@
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
+from PyQt5 import uic
 import sys
-import mysql.connector
-from PyQt5 import uic, QtWidgets
 
 
-def conectar():
+class pagina_principal(QMainWindow):
+    def __init__(self):
+        super().__init__()
 
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="test"
-    )
+        uic.loadUi("tela/principal.ui", self)
 
+        self.btn_cadastro.clicked.connect(lambda: self.abrir("tela/cadastrarcurso.ui"))
+        self.btn_relatorio.clicked.connect(lambda: self.abrir("tela/relatorio.ui"))
+        self.btn_calendario.clicked.connect(lambda: self.abrir("tela/calendario.ui"))
+        self.btn_legenda.clicked.connect(lambda: self.abrir("tela/legenda.ui"))
 
-def listar():
+        self.janelas = []
 
-    conexao = conectar()
-    cursor = conexao.cursor()
-
-    cursor.execute("SELECT * FROM test")
-
-    dados = cursor.fetchall()
-
-    tela.tabela_alunos.setRowCount(len(dados))
-
-    for i in range (len(dados)):
-
-        for j in range(4):
-
-            tela.tabela_alunos.setItem(i, j, QtWidgets.QTableWidgetItem(str(dados[i][j])))
+    def abrir(self, caminho):
+        janela = QWidget()
+        uic.loadUi(caminho, janela)
+        janela.show()
+        self.janelas.append(janela)
 
 
-
-app = QtWidgets.QApplication([])
-
-tela = uic.loadUi("pagina_principal.ui")
-
-
-tela.btn_listar.clicked.connect(listar)
-
-
-tela.show()
-
-app.exec()
-
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    janela = pagina_principal()
+    janela.show()
+    sys.exit(app.exec_())

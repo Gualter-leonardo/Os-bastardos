@@ -42,7 +42,7 @@ class CalendarioApp(QWidget):
         self.label_data.setText(f"{dia}/{mes}/{ano}")
 
         self.cursor.execute(
-            "SELECT descricao FROM eventos WHERE ano=%s AND mes=%s AND dia=%s",
+            "SELECT * FROM legendas WHERE ano=%s AND mes=%s AND dia=%s",
             (ano, mes, dia)
         )
 
@@ -59,6 +59,6 @@ class CalendarioApp(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     janela = CalendarioApp()
-    janela.resize(400, 400)
+    janela.resize(800, 600)
     janela.show()
     sys.exit(app.exec_())
