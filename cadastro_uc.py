@@ -1,7 +1,8 @@
 import sys
 import mysql.connector
 from PyQt5 import uic, QtWidgets
-from conexao import conexao
+import conexao
+print(dir(conexao))
 
 
 def salvar_uc():

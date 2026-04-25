@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1543</width>
+    <height>975</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="btn_cadastro">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>290</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cadastro</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_legenda">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>390</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Legenda</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_relatorio">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>490</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Relatorio</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_calendario">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>570</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calendario</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>150</y>
+      <width>481</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mongolian Baiti</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tela principal</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1543</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

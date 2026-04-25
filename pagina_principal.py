@@ -1,46 +1,81 @@
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
+from PyQt5 import uic
 import sys
-import mysql.connector
-from PyQt5 import uic, QtWidgets
 
 
-def conectar():
+# =========================
+# TELA PRINCIPAL
+# =========================
+class TelaPrincipal(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/principal.ui", self)
 
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="test"
-    )
+        self.btn_cadastro.clicked.connect(self.abrir_cadastro)
+        self.btn_relatorio.clicked.connect(self.abrir_relatorio)
+        self.btn_calendario.clicked.connect(self.abrir_calendario)
+        self.btn_legenda.clicked.connect(self.abrir_legenda)
 
+        self.janelas = []
 
-def listar():
+    def abrir_janela(self, janela):
+        janela.show()
+        self.janelas.append(janela)
 
-    conexao = conectar()
-    cursor = conexao.cursor()
+    def abrir_cadastro(self):
+        self.abrir_janela(TelaCadastro())
 
-    cursor.execute("SELECT * FROM test")
+    def abrir_relatorio(self):
+        self.abrir_janela(TelaRelatorio())
 
-    dados = cursor.fetchall()
+    def abrir_calendario(self):
+        self.abrir_janela(TelaCalendario())
 
-    tela.tabela_alunos.setRowCount(len(dados))
-
-    for i in range (len(dados)):
-
-        for j in range(4):
-
-            tela.tabela_alunos.setItem(i, j, QtWidgets.QTableWidgetItem(str(dados[i][j])))
-
-
-
-app = QtWidgets.QApplication([])
-
-tela = uic.loadUi("pagina_principal.ui")
+    def abrir_legenda(self):
+        self.abrir_janela(TelaLegenda())
 
 
-tela.btn_listar.clicked.connect(listar)
+# =========================
+# TELA CADASTRO
+# =========================
+class TelaCadastro(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/cadastrarcurso.ui", self)
 
 
-tela.show()
+# =========================
+# TELA RELATÓRIO
+# =========================
+class TelaRelatorio(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/relatorio.ui", self)
 
-app.exec()
 
+# =========================
+# TELA CALENDÁRIO
+# =========================
+class TelaCalendario(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/calendario.ui", self)
+
+
+# =========================
+# TELA LEGENDA
+# =========================
+class TelaLegenda(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/legenda.ui", self)
+
+
+# =========================
+# EXECUÇÃO
+# =========================
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    janela = TelaPrincipal()
+    janela.show()
+    sys.exit(app.exec_())
