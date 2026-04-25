@@ -25,14 +25,16 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>1530</x>
-     <y>-60</y>
-     <width>411</width>
-     <height>261</height>
+     <x>1270</x>
+     <y>160</y>
+     <width>641</width>
+     <height>701</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/senac/banner_senac.png);</string>
+    <string notr="true">image: url(:/senac.png/banner_senac.png);
+border: 2px solid blue;
+border-radius: 10px;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -44,7 +46,7 @@
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>670</x>
+     <x>660</x>
      <y>30</y>
      <width>591</width>
      <height>1001</height>
@@ -87,7 +89,7 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="txt_turma">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -137,14 +139,31 @@
    <widget class="QPushButton" name="btn_carregar">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>790</y>
-      <width>151</width>
-      <height>61</height>
+      <x>190</x>
+      <y>830</y>
+      <width>191</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #5B8DEF;  /* azul claro */
+    color: white;               /* texto branco */
+    border: none;
+    border-radius: 10px;        /* arredondado */
+    padding: 8px 16px;
+}</string>
+    </property>
     <property name="text">
-     <string>CARREGAR</string>
+     <string>ADICIONAR</string>
     </property>
    </widget>
   </widget>
@@ -153,7 +172,7 @@
     <rect>
      <x>730</x>
      <y>370</y>
-     <width>411</width>
+     <width>441</width>
      <height>411</height>
     </rect>
    </property>
@@ -192,27 +211,6 @@
     </property>
    </column>
   </widget>
-  <widget class="QFrame" name="frame_4">
-   <property name="geometry">
-    <rect>
-     <x>1330</x>
-     <y>270</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">&lt;div class=&quot;frame-azul&quot;&gt;
-  Seu conteúdo aqui
-&lt;/div&gt;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame_5">
    <property name="geometry">
     <rect>
@@ -238,7 +236,30 @@
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <widget class="QFrame" name="frame_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>601</width>
+     <height>691</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/senac.png/banner_senac.png);
+border: 2px solid blue;
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="senac.qrc"/>
+ </resources>
  <connections/>
 </ui>

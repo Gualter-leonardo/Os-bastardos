@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1493</width>
-    <height>972</height>
+    <width>1752</width>
+    <height>969</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
      <rect>
       <x>0</x>
       <y>230</y>
-      <width>630</width>
+      <width>621</width>
       <height>461</height>
      </rect>
     </property>
@@ -302,7 +302,7 @@ QLineEdit:focus {
       <string>   POSIÇÃO</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txt_posicao">
+    <widget class="QLineEdit" name="txt_horasucs_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -350,7 +350,7 @@ QLineEdit:focus {
       <string>         UC</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txt_nome_uc">
+    <widget class="QLineEdit" name="txt_horasucs_3">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -374,7 +374,7 @@ QLineEdit:focus {
 }</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_cadastrar_uc">
+    <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -510,7 +510,7 @@ QLineEdit:focus {
 }</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_quantidade">
+   <widget class="QLineEdit" name="txt_instrutor">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -588,7 +588,7 @@ QLineEdit:focus {
      <string>TEMPO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_carga_horaria">
+   <widget class="QLineEdit" name="txt_instrutor_2">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -636,7 +636,7 @@ QLineEdit:focus {
      <string>INICIO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_inicio">
+   <widget class="QLineEdit" name="txt_instrutor_3">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -687,7 +687,7 @@ QLineEdit:focus {
      <string>INSTRUTOR</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_instrutor">
+   <widget class="QLineEdit" name="txt_instrutor_4">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -714,7 +714,7 @@ QLineEdit:focus {
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_cadastrar">
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -840,6 +840,8 @@ image: url(:/png/banner_senac.png);</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Downloads/senac-logomarca.webp"/>
+ </resources>
  <connections/>
 </ui>

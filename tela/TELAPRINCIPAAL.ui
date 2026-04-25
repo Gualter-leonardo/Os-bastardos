@@ -23,8 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/senac/banner_senac.png);
-
+    <string notr="true">image: url(:/senac.png/banner_senac.png);
 border: 2px solid blue;
 border-radius: 10px;</string>
    </property>
@@ -249,6 +248,8 @@ QPushButton:pressed {
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="senac.qrc"/>
+ </resources>
  <connections/>
 </ui>

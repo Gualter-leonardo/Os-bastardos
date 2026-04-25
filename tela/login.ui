@@ -16,10 +16,10 @@
   <widget class="QFrame" name="LOGIN">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>200</y>
-     <width>791</width>
-     <height>601</height>
+     <x>130</x>
+     <y>100</y>
+     <width>781</width>
+     <height>951</height>
     </rect>
    </property>
    <property name="font">
@@ -29,9 +29,11 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame {
-    background-color: #ADD8E6;  /* Azul claro */
-    border: 2px solid #87CEFA;  /* Borda azul claro */
-    border-radius: 15px;         /* Cantos arredondados */
+    background-color: #1E3A5F;  /* azul escuro corporativo */
+    color: white;               /* texto branco */
+    border: 2px solid #0A1F44;  /* borda mais escura */
+    border-radius: 12px;        /* bordas arredondadas */
+    padding: 8px;
 }</string>
    </property>
    <property name="frameShape">
@@ -43,10 +45,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>130</y>
-      <width>191</width>
-      <height>131</height>
+      <x>170</x>
+      <y>200</y>
+      <width>421</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -58,31 +60,30 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QFrame {
-    background-color: #0D47A1;       /* Azul escuro */
-    border: 2px solid #42A5F5;       /* Borda azul clara */
-    border-radius: 15px;              /* Cantos arredondados */
-    color: white;                     /* Texto branco dentro do frame */
-    padding: 10px;                    /* Espaço interno */
+     <string notr="true">QLabel {
+    color: white;
+    background-color: #0A1F44;
 }</string>
     </property>
     <property name="text">
-     <string>    LOGIN</string>
+     <string>                      LOGIN</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>290</y>
-      <width>161</width>
+      <y>430</y>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cambria</family>
-      <pointsize>25</pointsize>
+      <pointsize>23</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -102,15 +103,17 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>360</y>
-      <width>161</width>
+      <y>510</y>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cambria</family>
-      <pointsize>25</pointsize>
+      <pointsize>23</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -129,8 +132,8 @@
    <widget class="QLineEdit" name="txt_usuario">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>310</y>
+      <x>210</x>
+      <y>450</y>
       <width>381</width>
       <height>20</height>
      </rect>
@@ -139,8 +142,8 @@
    <widget class="QLineEdit" name="txt_senha">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>380</y>
+      <x>210</x>
+      <y>530</y>
       <width>381</width>
       <height>20</height>
      </rect>
@@ -149,10 +152,10 @@
    <widget class="QPushButton" name="btn_login">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>470</y>
-      <width>131</width>
-      <height>41</height>
+      <x>300</x>
+      <y>670</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -181,14 +184,16 @@ QPushButton:hover </string>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>1450</x>
-     <y>0</y>
-     <width>471</width>
-     <height>221</height>
+     <x>1050</x>
+     <y>10</y>
+     <width>811</width>
+     <height>1011</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/png/banner_senac.png);</string>
+    <string notr="true">image: url(:/png/banner_senac.png);
+border: 2px solid blue;
+border-radius: 10px;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -198,6 +203,8 @@ QPushButton:hover </string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Downloads/senac-logomarca.webp"/>
+ </resources>
  <connections/>
 </ui>

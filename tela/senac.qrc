@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>banner_senac.png</file>
+  </qresource>
+</RCC>

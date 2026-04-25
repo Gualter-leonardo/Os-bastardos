@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icones">
+    <file>circulo.png</file>
+    <file>fluxo.qrc.png</file>
+    <file>grafc.qrc.png</file>
+    <file>icone.qrc.png</file>
+    <file>losanfo.qrc.png</file>
+    <file>poligno.qrc.png</file>
+    <file>quadro.qrc.png</file>
+    <file>reuniao.qrc.png</file>
+    <file>triangulo.qrc.png</file>
+  </qresource>
+</RCC>
