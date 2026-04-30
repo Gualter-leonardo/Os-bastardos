@@ -1,74 +1,103 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QWizardPage
 from PyQt5 import uic
 import sys
 
 
 # =========================
+# CLASSE BASE PARA TELAS
+# =========================
+class BaseTela:
+    def carregar_ui(self, caminho_ui):
+        uic.loadUi(caminho_ui, self)
+
+
+# =========================
 # TELA PRINCIPAL
 # =========================
-class TelaPrincipal(QMainWindow):
+class TelaPrincipal(QMainWindow, BaseTela):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/principal.ui", self)
+        self.carregar_ui("tela/principal.ui")
 
-        self.btn_cadastro.clicked.connect(self.abrir_cadastro)
-        self.btn_relatorio.clicked.connect(self.abrir_relatorio)
-        self.btn_calendario.clicked.connect(self.abrir_calendario)
-        self.btn_legenda.clicked.connect(self.abrir_legenda)
+        # Mapeamento de botões → telas
+        self.rotas = {
+            self.btn_cadastro: TelaCadastro,
+            self.btn_relatorio: TelaRelatorio,
+            self.btn_calendario: TelaCalendario,
+            self.btn_legenda: TelaLegenda
+        }
 
-        self.janelas = []
+        # Conectar todos os botões automaticamente
+        for botao, tela in self.rotas.items():
+            botao.clicked.connect(lambda _, t=tela: self.abrir_janela(t))
 
-    def abrir_janela(self, janela):
-        janela.show()
-        self.janelas.append(janela)
+        self.janelas = {}
 
-    def abrir_cadastro(self):
-        self.abrir_janela(TelaCadastro())
+    def abrir_janela(self, classe_tela):
+        # Evita recriar a janela se já existir
+        if classe_tela not in self.janelas:
+            self.janelas[classe_tela] = classe_tela()
 
-    def abrir_relatorio(self):
-        self.abrir_janela(TelaRelatorio())
-
-    def abrir_calendario(self):
-        self.abrir_janela(TelaCalendario())
-
-    def abrir_legenda(self):
-        self.abrir_janela(TelaLegenda())
+        self.janelas[classe_tela].show()
+        self.janelas[classe_tela].raise_()
 
 
 # =========================
 # TELA CADASTRO
 # =========================
-class TelaCadastro(QWidget):
+class TelaCadastro(QWidget, BaseTela):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/cadastrarcurso.ui", self)
+        self.carregar_ui("tela/cadastrarcurso.ui")
+
+        # Exemplo de função conectada
+        if hasattr(self, "btn_salvar"):
+            self.btn_salvar.clicked.connect(self.salvar_dados)
+
+    def salvar_dados(self):
+        print("Dados salvos!")  # Aqui entra sua lógica
 
 
 # =========================
 # TELA RELATÓRIO
 # =========================
-class TelaRelatorio(QWidget):
+class TelaRelatorio(QWizardPage, BaseTela):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/relatorio.ui", self)
+        self.carregar_ui("tela/relatorio.ui")
+
+        self.carregar_relatorio()
+
+    def carregar_relatorio(self):
+        print("Carregando relatório...")
 
 
 # =========================
 # TELA CALENDÁRIO
 # =========================
-class TelaCalendario(QWidget):
+class TelaCalendario(QWidget, BaseTela):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/calendario.ui", self)
+        self.carregar_ui("tela/calendario.ui")
+
+        self.configurar_calendario()
+
+    def configurar_calendario(self):
+        print("Calendário configurado!")
 
 
 # =========================
 # TELA LEGENDA
 # =========================
-class TelaLegenda(QWidget):
+class TelaLegenda(QWizardPage, BaseTela):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/legenda.ui", self)
+        self.carregar_ui("tela/legenda.ui")
+
+        self.carregar_legenda()
+
+    def carregar_legenda(self):
+        print("Legenda carregada!")
 
 
 # =========================
