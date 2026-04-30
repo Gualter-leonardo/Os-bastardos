@@ -3,6 +3,10 @@ from PyQt5 import uic
 import sys
 
 
+from conexao import salvar_cadastro, gerar_relatorio, configurar_calendario, carregar_legenda
+
+
+
 # =========================
 # CLASSE BASE PARA TELAS
 # =========================
@@ -19,7 +23,6 @@ class TelaPrincipal(QMainWindow, BaseTela):
         super().__init__()
         self.carregar_ui("tela/principal.ui")
 
-        # Mapeamento de botões → telas
         self.rotas = {
             self.btn_cadastro: TelaCadastro,
             self.btn_relatorio: TelaRelatorio,
@@ -27,14 +30,12 @@ class TelaPrincipal(QMainWindow, BaseTela):
             self.btn_legenda: TelaLegenda
         }
 
-        # Conectar todos os botões automaticamente
         for botao, tela in self.rotas.items():
             botao.clicked.connect(lambda _, t=tela: self.abrir_janela(t))
 
         self.janelas = {}
 
     def abrir_janela(self, classe_tela):
-        # Evita recriar a janela se já existir
         if classe_tela not in self.janelas:
             self.janelas[classe_tela] = classe_tela()
 
@@ -50,12 +51,14 @@ class TelaCadastro(QWidget, BaseTela):
         super().__init__()
         self.carregar_ui("tela/cadastrarcurso.ui")
 
-        # Exemplo de função conectada
         if hasattr(self, "btn_salvar"):
-            self.btn_salvar.clicked.connect(self.salvar_dados)
+            self.btn_salvar.clicked.connect(self.executar_salvar)
 
-    def salvar_dados(self):
-        print("Dados salvos!")  # Aqui entra sua lógica
+    def executar_salvar(self):
+        nome = self.input_nome.text() if hasattr(self, "input_nome") else ""
+        curso = self.input_curso.text() if hasattr(self, "input_curso") else ""
+
+        salvar_cadastro(nome, curso)
 
 
 # =========================
@@ -69,7 +72,7 @@ class TelaRelatorio(QWizardPage, BaseTela):
         self.carregar_relatorio()
 
     def carregar_relatorio(self):
-        print("Carregando relatório...")
+        gerar_relatorio()
 
 
 # =========================
@@ -80,10 +83,10 @@ class TelaCalendario(QWidget, BaseTela):
         super().__init__()
         self.carregar_ui("tela/calendario.ui")
 
-        self.configurar_calendario()
+        self.configurar()
 
-    def configurar_calendario(self):
-        print("Calendário configurado!")
+    def configurar(self):
+        configurar_calendario()
 
 
 # =========================
@@ -94,10 +97,10 @@ class TelaLegenda(QWizardPage, BaseTela):
         super().__init__()
         self.carregar_ui("tela/legenda.ui")
 
-        self.carregar_legenda()
+        self.carregar()
 
-    def carregar_legenda(self):
-        print("Legenda carregada!")
+    def carregar(self):
+        carregar_legenda()
 
 
 # =========================

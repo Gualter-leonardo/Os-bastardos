@@ -9,3 +9,17 @@ def conectar():
     )
     return conn
 
+def salvar_cadastro(nome, curso):
+    print(f"[CADASTRO] {nome} - {curso}")
+
+
+def gerar_relatorio():
+    print("[RELATÓRIO] OK")
+
+
+def configurar_calendario():
+    print("[CALENDÁRIO] OK")
+
+
+def carregar_legenda():
+    print("[LEGENDA] OK")
