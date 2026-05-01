@@ -55,7 +55,7 @@ class TelaCadastro(QWidget, BaseTela):
         super().__init__()
         self.carregar_ui("tela/cadastrarcurso.ui")
 
-        self.btn_salvar.clicked.connect(self.executar_salvar)
+        self.btn_cadastrar.clicked.connect(self.executar_salvar)
 
     def executar_salvar(self):
         nome = self.input_nome.text()
