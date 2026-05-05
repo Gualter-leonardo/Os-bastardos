@@ -248,8 +248,5 @@ QPushButton:pressed {
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="senac.qrc"/>
- </resources>
  <connections/>
 </ui>

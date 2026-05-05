@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import uic, QtWidgets, QtCore, QtGui
 import conexao
+import os
 
 
 class CalendarioApp(QtWidgets.QWidget):
@@ -8,7 +9,7 @@ class CalendarioApp(QtWidgets.QWidget):
         super().__init__()
 
         # Carrega interface do Qt Designer
-        uic.loadUi("tela/calendario.ui", self)
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "calendario.ui"), self)
 
         # Conexão com banco
         self.conn = conexao.conectar()

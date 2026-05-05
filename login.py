@@ -1,13 +1,14 @@
 import mysql.connector
 from PyQt5 import uic, QtCore, QtWidgets
 import conexao
+import os
 
 class TelaLogin(QtWidgets.QWidget):
     login_sucesso = QtCore.pyqtSignal()
 
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/login.ui", self)
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "login.ui"), self)
         self.setWindowTitle("Login")
         self.setWindowFlags(self.windowFlags() | QtCore.Qt.Window)
         self.btn_login.clicked.connect(self.verificar_login)

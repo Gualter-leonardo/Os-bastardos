@@ -2,12 +2,13 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWizardPage
 import conexao
+import os
 
 class Main(QWizardPage):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi("tela/legenda.ui", self)
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "legenda.ui"), self)
         self.btn_adicionar.clicked.connect(self.salvar_dados)
 
     def salvar_dados(self):

@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import uic, QtWidgets
 import conexao
+import os
 
 
 def carregar_cursos():
@@ -22,7 +23,7 @@ def carregar_cursos():
 
 
 
-tela = uic.loadUi("tela/cadastrarcurso.ui")
+tela = uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"))
 
 
 

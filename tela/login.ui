@@ -203,8 +203,5 @@ border-radius: 10px;</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../../Downloads/senac-logomarca.webp"/>
- </resources>
  <connections/>
 </ui>

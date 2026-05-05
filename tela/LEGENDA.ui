@@ -602,10 +602,5 @@ border-radius: 10px;</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="senac.qrc"/>
-  <include location="icon.qrc"/>
-  <include location="circulo.qrc"/>
- </resources>
  <connections/>
 </ui>

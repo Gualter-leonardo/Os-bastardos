@@ -1,27 +1,27 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 from login import TelaLogin
-from pagina_principal import TelaPrincipal
+
 
 
 def main():
-    app = QApplication(sys.argv)
+    try:
+        app = QApplication(sys.argv)
 
-    login = TelaLogin()
-    janela = TelaPrincipal()
+        login = TelaLogin()
+        
 
-    def abrir_principal():
-        login.close()
-        janela.show()
-        janela.raise_()
-        janela.activateWindow()
+        login.show()
+        login.raise_()
+        login.activateWindow()
 
-    login.login_sucesso.connect(abrir_principal)
-    login.show()
-    login.raise_()
-    login.activateWindow()
+        sys.exit(app.exec_())
 
-    sys.exit(app.exec_())
+    except Exception as e:
+        print(f"Erro: {e}")
+        import traceback
+        traceback.print_exc()
+        raise
 
 
 if __name__ == "__main__":

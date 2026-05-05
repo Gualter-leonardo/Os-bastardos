@@ -1,12 +1,13 @@
 import mysql.connector
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QWizardPage
+import os
 
 
 class TelaRelatorio(QWizardPage):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/relatorio.ui", self)
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "relatorio.ui"), self)
 
         self.btn_carregar.clicked.connect(self.gerar_relatorio)
 

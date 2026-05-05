@@ -26,7 +26,9 @@ class BaseTela:
 class TelaPrincipal(QMainWindow, BaseTela):
     def __init__(self):
         super().__init__()
+        print("Carregando UI principal")
         self.carregar_ui("tela/principal.ui")
+        print("UI carregada")
 
         self.janelas = {}
 
@@ -34,6 +36,7 @@ class TelaPrincipal(QMainWindow, BaseTela):
         self.btn_relatorio.clicked.connect(lambda: self.abrir_janela(TelaRelatorio))
         self.btn_calendario.clicked.connect(lambda: self.abrir_janela(TelaCalendario))
         self.btn_legenda.clicked.connect(lambda: self.abrir_janela(TelaLegenda))
+        print("Conexoes feitas")
 
     def abrir_janela(self, classe_tela):
         # garante que a janela ainda existe
@@ -60,10 +63,6 @@ class TelaCalendario(CalendarioApp):
     pass
 
 
-# =========================
-# TELA LEGENDA
-# =========================
-# Uses legenda.Main from legenda.py
 
 
 # =========================

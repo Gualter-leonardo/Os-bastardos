@@ -1,11 +1,12 @@
 from PyQt5 import QtWidgets, uic
 import conexao
+import os
 
 
 class TelaCadastro(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi("tela/cadastrarcurso.ui", self)
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"), self)
 
         self.btn_uc_cadastrar.clicked.connect(self.salvar_uc)
 
