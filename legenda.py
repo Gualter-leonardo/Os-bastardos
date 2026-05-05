@@ -1,16 +1,16 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow , QWizardPage
+import sys , os
+from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication, QMainWindow , QWizardPage 
 import conexao 
 
 class Main(QWizardPage):
     def __init__(self):
         super().__init__()
 
-        self.ui = Ui_WizardPage()
-        self.ui.setupUi(self)
+        self.ui = uic.loadUi("tela/legenda.ui", self)
 
         
-        self.ui.btn_onar.clicked.connect(self.salvar_dados)
+        self.ui.btn_adicionar.clicked.connect(self.salvar_dados)
 
     def salvar_dados(self):
         print("Feriado:", self.ui.txt_feriado.text())
@@ -28,7 +28,10 @@ class Main(QWizardPage):
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    janela = Main()
-    janela.show()
-    sys.exit(app.exec_())
+  app = QApplication(sys.argv)
+
+
+janela = uic.loadUi("tela/legenda.ui")
+janela.show()
+
+sys.exit(app.exec_())
