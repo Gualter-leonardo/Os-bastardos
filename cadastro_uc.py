@@ -1,38 +1,43 @@
-import sys
-import mysql.connector
-from PyQt5 import uic, QtWidgets
+from PyQt5 import QtWidgets, uic
 import conexao
 
-print(dir(conexao))
 
+class TelaCadastro(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("tela/cadastrarcurso.ui", self)
 
-def salvar_uc():
-    horas_uc = tela.txt_horasucs.text()
-    posicao = tela.txt_posicao.text()
-    nome_uc = tela.txt_nome_uc.text()
+        self.btn_uc_cadastrar.clicked.connect(self.salvar_uc)
 
-    conn = conexao.conectar()
-    cursor = conn.cursor()
+        self.conn = conexao.conectar()
+        self.cursor = self.conn.cursor()
 
-    comando = "INSERT INTO grade (horas_uc, posicao, nome_uc) VALUES (%s, %s, %s)"
-    dados = (horas_uc, posicao, nome_uc)
+    def salvar_uc(self):
+        horas_uc = self.txt_horasucs.text()
+        posicao = self.txt_posicao.text()
+        nome_uc = self.txt_nome_uc.text()
 
-    cursor.execute(comando, dados)
-    conn.commit()
+        if not horas_uc or not posicao or not nome_uc:
+            QtWidgets.QMessageBox.warning(self, "Erro", "Preencha todos os campos!")
+            return
 
-    QtWidgets.QMessageBox.information(tela, "Sucesso", "Grade cadastrada com sucesso")
+        try:
+            comando = """
+                INSERT INTO grade (horas_uc, posicao, nome_uc)
+                VALUES (%s, %s, %s)
+            """
+            dados = (horas_uc, posicao, nome_uc)
 
-    tela.txt_horasucs.setText("")
-    tela.txt_posicao.setText("")
-    tela.txt_nome_uc.setText("")
+            self.cursor.execute(comando, dados)
+            self.conn.commit()
 
+            QtWidgets.QMessageBox.information(
+                self, "Sucesso", "Grade cadastrada com sucesso"
+            )
 
-app = QtWidgets.QApplication([])
+            self.txt_horasucs.clear()
+            self.txt_posicao.clear()
+            self.txt_nome_uc.clear()
 
-tela = uic.loadUi("tela/cadastrarcurso.ui")
-
-tela.btn_cadastrar_uc.clicked.connect(salvar_uc)
-
-tela.show()
-
-sys.exit(app.exec())
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro", str(e))

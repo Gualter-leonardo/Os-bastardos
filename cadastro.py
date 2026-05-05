@@ -1,64 +1,52 @@
-import sys
-from PyQt5 import uic, QtWidgets
-
+from PyQt5 import QtWidgets, uic
 import conexao
-import cadastro_uc
-import curso
 
 
-def salvar_cadastro():
-    carga_horaria = tela.txt_carga_horaria.text()
-    nome_curso = tela.txt_curso.text()
-    instrutor = tela.txt_instrutor.text()
-    quantidade_uc = tela.txt_quantidade.text()
-    inicio = tela.txt_inicio.text()
+class TelaCadastroCurso(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
 
-    conn = conexao.conectar()
-    cursor = conn.cursor()
+        uic.loadUi("tela/cadastrarcurso.ui", self)
 
-    comando = """
-        INSERT INTO cursos2
-        (carga_horaria, curso, instrutor, quantidade_uc, inicio)
-        VALUES (%s, %s, %s, %s, %s)
-    """
+        self.btn_cadastrar.clicked.connect(self.salvar_cadastro)
 
-    dados = (carga_horaria, nome_curso, instrutor, quantidade_uc, inicio)
+    def salvar_cadastro(self):
+        carga_horaria = self.txt_carga_horaria.text()
+        nome_curso = self.txt_curso.text()
+        instrutor = self.txt_instrutor.text()
+        quantidade_uc = self.txt_quantidade.text()
+        inicio = self.txt_inicio.text()
 
-    cursor.execute(comando, dados)
-    conn.commit()
+        try:
+            conn = conexao.conectar()
+            cursor = conn.cursor()
 
-    cursor.close()
-    conn.close()
+            comando = """
+                INSERT INTO cursos2
+                (carga_horaria, curso, instrutor, quantidade_uc, inicio)
+                VALUES (%s, %s, %s, %s, %s)
+            """
 
-    QtWidgets.QMessageBox.information(
-        tela, "Sucesso", "Curso cadastrado com sucesso"
-    )
+            dados = (carga_horaria, nome_curso, instrutor, quantidade_uc, inicio)
 
-    tela.txt_carga_horaria.setText("")
-    tela.txt_curso.setText("")
-    tela.txt_instrutor.setText("")
-    tela.txt_quantidade.setText("")
-    tela.txt_inicio.setText("")
+            cursor.execute(comando, dados)
+            conn.commit()
 
+            cursor.close()
+            conn.close()
 
-def salvar_uc():
-    cadastro_uc.salvar_uc()
+            QtWidgets.QMessageBox.information(
+                self, "Sucesso", "Curso cadastrado com sucesso"
+            )
 
+            self.limpar_campos()
 
-def carregar_cursos():
-    curso.carregar_cursos(tela)
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro", str(e))
 
-
-# APP
-app = QtWidgets.QApplication(sys.argv)
-
-tela = uic.loadUi("tela/cadastrarcurso.ui")
-
-tela.btn_cadastrar.clicked.connect(salvar_cadastro)
-
-# se tiver botão de atualizar lista
-if hasattr(tela, "btn_carregar"):
-    tela.btn_carregar.clicked.connect(carregar_cursos)
-
-tela.show()
-sys.exit(app.exec())
+    def limpar_campos(self):
+        self.txt_carga_horaria.clear()
+        self.txt_curso.clear()
+        self.txt_instrutor.clear()
+        self.txt_quantidade.clear()
+        self.txt_inicio.clear()

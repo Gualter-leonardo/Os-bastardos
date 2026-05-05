@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1752</width>
-    <height>969</height>
+    <height>946</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -374,7 +374,7 @@ QLineEdit:focus {
 }</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btn_uc_cadastrar">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -486,7 +486,7 @@ QPushButton:pressed {
      <string>QTD UCs</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_curso">
+   <widget class="QLineEdit" name="txt_nome_curso">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -510,7 +510,7 @@ QLineEdit:focus {
 }</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_instrutor">
+   <widget class="QLineEdit" name="txt_quantidade_uc">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -588,7 +588,7 @@ QLineEdit:focus {
      <string>TEMPO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_instrutor_2">
+   <widget class="QLineEdit" name="txt_tempo">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -636,7 +636,7 @@ QLineEdit:focus {
      <string>INICIO</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_instrutor_3">
+   <widget class="QLineEdit" name="txt_inicio">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -687,7 +687,7 @@ QLineEdit:focus {
      <string>INSTRUTOR</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txt_instrutor_4">
+   <widget class="QLineEdit" name="txt_instrutor">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -714,7 +714,7 @@ QLineEdit:focus {
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btn_cadastrar">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -840,8 +840,6 @@ image: url(:/png/banner_senac.png);</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../../Downloads/senac-logomarca.webp"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

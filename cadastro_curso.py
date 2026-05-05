@@ -1,54 +1,56 @@
-import sys
+from PyQt5 import QtWidgets, uic
 import mysql.connector
-# Importa classes principais do PyQt5
-from PyQt5 import uic, QtWidgets
 
-# Função que será executada quando clicar no botão salvar
-def salvar_cadastro():
-    # Pega os dados digitados nos campos da tela
-    
-    carga_horaria = tela.txt_tempo.text()
-    curso = tela.txt_curso.text()
-    instrutor = tela.txt_instrutor.text()
-    quantidade_uc = tela.txt_quantidade.text()
-    inicio = tela.txt_inicio.text()
 
-    # Conexão com o banco de dados MySQL
-    conexao = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="test"
-    )
-    # Cria o cursor que executa comandos SQL
-    cursor = conexao.cursor()
-    # Comando SQL de inserção
-    comando = "INSERT INTO cursos2 ( carga_horaria, curso, instrutor, quantidade_uc, inicio) VALUES (%s,%s,%s,%s,%s)"\
+class TelaCadastro(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
 
-    # Valores que serão inseridos
-    dados = ( carga_horaria, curso ,instrutor, quantidade_uc, inicio)
-    # Executa o comando
-    cursor.execute(comando, dados)
-    # Confirma a alteração no banco
-    conexao.commit()
-    # Mostra mensagem para o usúario
-    QtWidgets.QMessageBox.information(tela, "Sucesso","Aluno cadastrado com sucesso")
-    # Limpa os campos da tela
-    
-    tela.txt_carga_horaria.setText("")
-    tela.txt_curso.setText("")
-    tela.txt_instrutor.setText("")
-    tela.txt_quantidade.setText("")
-    tela.txt_inicio.setText("")
+        uic.loadUi("tela/cadastrarcurso.ui", self)
 
-# Inicialização da aplicação
-app = QtWidgets.QApplication([])
-# Carrega a interface criada no QtDesigner
-tela = uic.loadUi("tela/cadastrarcurso.ui")
-# Conecta o botão salvar com a função salvar_aluno
-tela.btn_cadastrar.clicked.connect(salvar_cadastro)
-# Mostra a tela
-tela.show()
-# Mantém o programa em execução
-app.exec()
+        self.btn_cadastrar.clicked.connect(self.salvar_cadastro)
 
+        self.conexao = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="test"
+        )
+
+        self.cursor = self.conexao.cursor()
+
+    def salvar_cadastro(self):
+        carga_horaria = self.txt_tempo.text()
+        curso = self.txt_curso.text()
+        instrutor = self.txt_instrutor.text()
+        quantidade_uc = self.txt_quantidade.text()
+        inicio = self.txt_inicio.text()
+
+        if not carga_horaria or not curso:
+            QtWidgets.QMessageBox.warning(self, "Erro", "Preencha os campos obrigatórios!")
+            return
+
+        try:
+            comando = """
+                INSERT INTO cursos2
+                (carga_horaria, curso, instrutor, quantidade_uc, inicio)
+                VALUES (%s, %s, %s, %s, %s)
+            """
+
+            dados = (carga_horaria, curso, instrutor, quantidade_uc, inicio)
+
+            self.cursor.execute(comando, dados)
+            self.conexao.commit()
+
+            QtWidgets.QMessageBox.information(
+                self, "Sucesso", "Curso cadastrado com sucesso"
+            )
+
+            self.txt_tempo.clear()
+            self.txt_curso.clear()
+            self.txt_instrutor.clear()
+            self.txt_quantidade.clear()
+            self.txt_inicio.clear()
+
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro", str(e))

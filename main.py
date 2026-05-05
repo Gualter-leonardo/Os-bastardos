@@ -1,19 +1,16 @@
 import sys
-from PyQt5 import QtWidgets
-from cadastro import CadastroCurso
+from PyQt5.QtWidgets import QApplication
+from pagina_principal import TelaPrincipal
 
-print("antes app")
 
-app = QtWidgets.QApplication(sys.argv)
+def main():
+    app = QApplication(sys.argv)
 
-print("antes janela")
+    janela = TelaPrincipal()
+    janela.show()
 
-janela = CadastroCurso()
+    sys.exit(app.exec_())
 
-print("depois janela")
 
-janela.show()
-
-print("show chamado")
-
-sys.exit(app.exec())
+if __name__ == "__main__":
+    main()

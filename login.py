@@ -1,7 +1,9 @@
 import sys
 import mysql.connector
 from PyQt5 import uic, QtWidgets
+import conexao
 
+cursor = conexao.conectar()
 
 def verificar_login():
     
@@ -9,28 +11,20 @@ def verificar_login():
     senha = tela.txt_senha.text()
     
     QtWidgets.QMessageBox.information(tela, "Login", "Login realizado com sucesso")
-    # conexao = mysql.connector.connect(
-    #     host="localhost",
-    #     user="root",
-    #     password="",
-    #     database="test"
-    # )
-    # cursor = conexao.cursor()
     
-    # comando = "SELECT * FROM informacao WHERE usuario=%s AND senha=%s"
-    # dados = (usuario, senha)
-    # cursor.execute(comando, dados)
-    # resultado = cursor.fetchone()
-    # if resultado:
-
-        
-    # else:
-
-    #     QtWidgets.QMessageBox.warning(tela, "Erro", "Usuario ou senha inválidos")
-
+    
+    comando = "SELECT * FROM informacao WHERE usuario=%s AND senha=%s"
+    dados = (usuario, senha)
+    cursor.execute(comando, dados)      
+    resultado = cursor.fetchone()
+    if resultado:
+        QtWidgets.QMessageBox.information(tela, "Login", "Login realizado com sucesso")
+    else:
+        QtWidgets.QMessageBox.warning(tela, "Login", "Usuário ou senha incorretos")
+    
 app = QtWidgets.QApplication([])
-tela = uic.loadUi("tela/cadastrarcurso.ui")
-# tela.btn_login.clicked.connect(verificar_login)
+tela = uic.loadUi("tela/login.ui")
+tela.btn_login.clicked.connect(verificar_login)
 tela.show()
 app.exec()
         

@@ -1,10 +1,12 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QMessageBox
-from PyQt5 import uic
+from PyQt5 import uic, QtCore
 import sys
 import os
 
-from conexao import salvar_cadastro, gerar_relatorio, configurar_calendario, carregar_legenda
-
+from cadastro import salvar_cadastro
+from relatorio import gerar_relatorio
+from calendario import configurar_calendario
+from legenda import carregar_legenda
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -34,17 +36,21 @@ class TelaPrincipal(QMainWindow, BaseTela):
         self.btn_legenda.clicked.connect(lambda: self.abrir_janela(TelaLegenda))
 
     def abrir_janela(self, classe_tela):
-        if classe_tela not in self.janelas:
+        # garante que a janela ainda existe
+        janela = self.janelas.get(classe_tela)
+
+        if janela is None:
             janela = classe_tela()
 
-            # Remove da memória ao fechar
-            janela.destroyed.connect(lambda: self.janelas.pop(classe_tela, None))
+            # importante: evita crash ao fechar manualmente
+            janela.setAttribute(QtCore.Qt.WA_DeleteOnClose, True)
 
+            janela.destroyed.connect(lambda: self.janelas.pop(classe_tela, None))
             self.janelas[classe_tela] = janela
 
-        self.janelas[classe_tela].show()
-        self.janelas[classe_tela].raise_()
-        self.janelas[classe_tela].activateWindow()
+        janela.show()
+        janela.raise_()
+        janela.activateWindow()
 
 
 # =========================
@@ -67,6 +73,7 @@ class TelaCadastro(QWidget, BaseTela):
 
         try:
             salvar_cadastro(nome, curso)
+
             QMessageBox.information(self, "Sucesso", "Cadastro salvo com sucesso!")
 
             self.input_nome.clear()
@@ -90,7 +97,6 @@ class TelaRelatorio(QWidget, BaseTela):
         try:
             dados = gerar_relatorio()
 
-            # Exemplo: se tiver um QListWidget chamado lista
             if hasattr(self, "lista"):
                 self.lista.clear()
                 for item in dados:
@@ -113,6 +119,7 @@ class TelaCalendario(QWidget, BaseTela):
     def configurar(self):
         try:
             configurar_calendario(self)
+
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro no calendário: {e}")
 

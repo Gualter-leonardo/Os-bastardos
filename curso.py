@@ -21,11 +21,9 @@ def carregar_cursos():
     conn.close()
 
 
-app = QtWidgets.QApplication(sys.argv)
 
 tela = uic.loadUi("tela/cadastrarcurso.ui")
 
-carregar_cursos()
 
-tela.show()
-sys.exit(app.exec())
+
+
