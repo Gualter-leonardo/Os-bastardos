@@ -3,10 +3,10 @@ from PyQt5 import uic, QtCore
 import sys
 import os
 
-from cadastro import salvar_cadastro
-from relatorio import gerar_relatorio
-from calendario import configurar_calendario
-from legenda import carregar_legenda
+from cadastro import TelaCadastroCurso
+from relatorio import TelaRelatorio
+from calendario import CalendarioApp
+from legenda import Main as TelaLegenda
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -30,7 +30,7 @@ class TelaPrincipal(QMainWindow, BaseTela):
 
         self.janelas = {}
 
-        self.btn_cadastro.clicked.connect(lambda: self.abrir_janela(TelaCadastro))
+        self.btn_cadastro.clicked.connect(lambda: self.abrir_janela(TelaCadastroCurso))
         self.btn_relatorio.clicked.connect(lambda: self.abrir_janela(TelaRelatorio))
         self.btn_calendario.clicked.connect(lambda: self.abrir_janela(TelaCalendario))
         self.btn_legenda.clicked.connect(lambda: self.abrir_janela(TelaLegenda))
@@ -54,95 +54,16 @@ class TelaPrincipal(QMainWindow, BaseTela):
 
 
 # =========================
-# TELA CADASTRO
-# =========================
-class TelaCadastro(QWidget, BaseTela):
-    def __init__(self):
-        super().__init__()
-        self.carregar_ui("tela/cadastrarcurso.ui")
-
-        self.btn_cadastrar.clicked.connect(self.executar_salvar)
-
-    def executar_salvar(self):
-        nome = self.input_nome.text()
-        curso = self.input_curso.text()
-
-        if not nome or not curso:
-            QMessageBox.warning(self, "Erro", "Preencha todos os campos!")
-            return
-
-        try:
-            salvar_cadastro(nome, curso)
-
-            QMessageBox.information(self, "Sucesso", "Cadastro salvo com sucesso!")
-
-            self.input_nome.clear()
-            self.input_curso.clear()
-
-        except Exception as e:
-            QMessageBox.critical(self, "Erro", f"Erro ao salvar: {e}")
-
-
-# =========================
-# TELA RELATÓRIO
-# =========================
-class TelaRelatorio(QWidget, BaseTela):
-    def __init__(self):
-        super().__init__()
-        self.carregar_ui("tela/relatorio.ui")
-
-        self.carregar_relatorio()
-
-    def carregar_relatorio(self):
-        try:
-            dados = gerar_relatorio()
-
-            if hasattr(self, "lista"):
-                self.lista.clear()
-                for item in dados:
-                    self.lista.addItem(str(item))
-
-        except Exception as e:
-            QMessageBox.critical(self, "Erro", f"Erro ao gerar relatório: {e}")
-
-
-# =========================
 # TELA CALENDÁRIO
 # =========================
-class TelaCalendario(QWidget, BaseTela):
-    def __init__(self):
-        super().__init__()
-        self.carregar_ui("tela/calendario.ui")
-
-        self.configurar()
-
-    def configurar(self):
-        try:
-            configurar_calendario(self)
-
-        except Exception as e:
-            QMessageBox.critical(self, "Erro", f"Erro no calendário: {e}")
+class TelaCalendario(CalendarioApp):
+    pass
 
 
 # =========================
 # TELA LEGENDA
 # =========================
-class TelaLegenda(QWidget, BaseTela):
-    def __init__(self):
-        super().__init__()
-        self.carregar_ui("tela/legenda.ui")
-
-        self.carregar()
-
-    def carregar(self):
-        try:
-            dados = carregar_legenda()
-
-            if hasattr(self, "texto_legenda"):
-                self.texto_legenda.setText(str(dados))
-
-        except Exception as e:
-            QMessageBox.critical(self, "Erro", f"Erro ao carregar legenda: {e}")
+# Uses legenda.Main from legenda.py
 
 
 # =========================
