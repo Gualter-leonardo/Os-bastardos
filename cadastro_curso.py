@@ -3,7 +3,7 @@ import mysql.connector
 import os
 
 
-class TelaCadastro(QtWidgets.QWidget):
+class TelaCadastroCursoAlt(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 

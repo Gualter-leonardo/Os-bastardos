@@ -3,7 +3,7 @@ import conexao
 import os
 
 
-class TelaCadastro(QtWidgets.QWidget):
+class TelaCadastroUC(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"), self)

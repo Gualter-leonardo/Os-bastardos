@@ -4,26 +4,31 @@ import conexao
 import os
 
 
-def carregar_cursos():
-    conn = conexao.conectar()
-    cursor = conn.cursor()
+class TelaCursos(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"), self)
+        self.carregar_cursos()
 
-    comando = "SELECT DISTINCT curso FROM cursos2"
-    cursor.execute(comando)
+    def carregar_cursos(self):
+        try:
+            conn = conexao.conectar()
+            cursor = conn.cursor()
 
-    resultados = cursor.fetchall()
+            comando = "SELECT DISTINCT curso FROM cursos2"
+            cursor.execute(comando)
 
-    tela.comboBox.clear()
+            resultados = cursor.fetchall()
 
-    for curso in resultados:
-        tela.comboBox.addItem(curso[0])
+            self.comboBox.clear()
 
-    cursor.close()
-    conn.close()
+            for curso in resultados:
+                self.comboBox.addItem(curso[0])
 
-
-
-tela = uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"))
+            cursor.close()
+            conn.close()
+        except Exception as e:
+            print(f"Erro ao carregar cursos: {e}")
 
 
 

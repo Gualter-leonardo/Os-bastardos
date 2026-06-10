@@ -21,6 +21,13 @@ class BaseTela:
 
 
 # =========================
+# TELA CALENDÁRIO
+# =========================
+class TelaCalendario(CalendarioApp):
+    pass
+
+
+# =========================
 # TELA PRINCIPAL
 # =========================
 class TelaPrincipal(QMainWindow, BaseTela):
@@ -54,13 +61,6 @@ class TelaPrincipal(QMainWindow, BaseTela):
         janela.show()
         janela.raise_()
         janela.activateWindow()
-
-
-# =========================
-# TELA CALENDÁRIO
-# =========================
-class TelaCalendario(CalendarioApp):
-    pass
 
 
 
