@@ -8,20 +8,9 @@ class TelaRelatorio(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         try:
-            # Carrega o arquivo UI do relatorio
             ui_path = os.path.join(os.path.dirname(__file__), "tela", "relatorio.ui")
-            # Usa um container temporário para carregar a UI
-            self.ui_container = QWizardPage()
-            uic.loadUi(ui_path, self.ui_container)
-            
-            # Copia os widgets do container para esta janela
-            if hasattr(self.ui_container, 'btn_carregar'):
-                self.btn_carregar = self.ui_container.btn_carregar
-                self.btn_carregar.clicked.connect(self.gerar_relatorio)
-            
-            if hasattr(self.ui_container, 'txt_tabela'):
-                self.txt_tabela = self.ui_container.txt_tabela
-                
+            uic.loadUi(ui_path, self)
+            self.btn_carregar.clicked.connect(self.gerar_relatorio)
         except Exception as e:
             print(f"Aviso: Usando UI simplificada para relatorio. Erro: {e}")
             # Criar UI programaticamente se não conseguir carregar do arquivo

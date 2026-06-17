@@ -8,22 +8,31 @@ class CalendarioApp(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        # Carrega interface do Qt Designer
         uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "calendario.ui"), self)
 
-        # Conexão com banco
-        self.conn = conexao.conectar()
-        self.cursor = self.conn.cursor()
+        self.conn = None
+        self.cursor = None
+        try:
+            self.conn = conexao.conectar()
+            self.cursor = self.conn.cursor()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro de conexão", str(e))
 
-        # data selecionada
         self.data_atual = None
 
-        # conecta eventos da UI
-        self.calendarWidget.clicked.connect(self.data_selecionada)
-        self.btn_salvar.clicked.connect(self.salvar_evento)
+        if hasattr(self, "calendarWidget"):
+            self.calendarWidget.clicked.connect(self.data_selecionada)
 
-        # legenda de cores
-        self.legenda = {
+        if hasattr(self, "combo_tipo"):
+            self.combo_tipo.addItems(sorted(self.legenda.keys()))
+        else:
+            self.criar_controles_calendario_fallback()
+
+        self.atualizar_formatacao()
+
+    @property
+    def legenda(self):
+        return {
             "FERIADO": "red",
             "RECESSO": "blue",
             "PLANEJAMENTO": "orange",
@@ -35,116 +44,122 @@ class CalendarioApp(QtWidgets.QWidget):
             "FIM_CURSO": "black",
             "PROVA": "darkred",
             "AVALIACAO": "darkblue",
-            "TREINAMENTO": "darkgreen"
+            "TREINAMENTO": "darkgreen",
         }
 
-        # 🔥 CARREGA EVENTOS AO ABRIR
-        self.atualizar_formatacao()
+    def criar_controles_calendario_fallback(self):
+        self.combo_tipo = QtWidgets.QComboBox(self)
+        self.combo_tipo.addItems(sorted(self.legenda.keys()))
+        self.combo_tipo.setGeometry(20, 20, 240, 30)
 
-    # =========================
-    # AO CLICAR NO DIA
-    # =========================
+        self.texto_evento = QtWidgets.QTextEdit(self)
+        self.texto_evento.setGeometry(20, 60, 240, 120)
+
+        self.btn_salvar = QtWidgets.QPushButton("Salvar evento", self)
+        self.btn_salvar.setGeometry(20, 190, 240, 35)
+        self.btn_salvar.clicked.connect(self.salvar_evento)
+
+        self.label_data = QtWidgets.QLabel("Data: -", self)
+        self.label_data.setGeometry(20, 235, 240, 25)
+
     def data_selecionada(self, data: QtCore.QDate):
         self.data_atual = data
+        if hasattr(self, "label_data"):
+            self.label_data.setText(f"{data.day()}/{data.month()}/{data.year()}")
+
+        if not self.cursor or not hasattr(self, "combo_tipo") or not hasattr(self, "texto_evento"):
+            return
 
         ano, mes, dia = data.year(), data.month(), data.day()
-        self.label_data.setText(f"{dia}/{mes}/{ano}")
-
         try:
             self.cursor.execute(
                 "SELECT tipo, texto FROM legendas WHERE ano=%s AND mes=%s AND dia=%s",
-                (ano, mes, dia)
+                (ano, mes, dia),
             )
-
             resultado = self.cursor.fetchone()
 
             if resultado:
                 self.combo_tipo.setCurrentText(resultado[0])
-                self.texto_evento.setText(resultado[1])
+                self.texto_evento.setPlainText(resultado[1])
             else:
                 self.texto_evento.clear()
 
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Erro", str(e))
 
-    # =========================
-    # SALVAR EVENTO
-    # =========================
     def salvar_evento(self):
         if not self.data_atual:
             QtWidgets.QMessageBox.warning(self, "Aviso", "Selecione uma data primeiro!")
             return
 
+        if not self.cursor or not hasattr(self, "combo_tipo") or not hasattr(self, "texto_evento"):
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Aviso",
+                "A interface de salvamento não está disponível.",
+            )
+            return
+
         ano = self.data_atual.year()
         mes = self.data_atual.month()
         dia = self.data_atual.day()
-
         tipo = self.combo_tipo.currentText()
         texto = self.texto_evento.toPlainText()
 
         try:
-            # verifica se já existe
             self.cursor.execute(
                 "SELECT id FROM legendas WHERE ano=%s AND mes=%s AND dia=%s",
-                (ano, mes, dia)
+                (ano, mes, dia),
             )
-
             resultado = self.cursor.fetchone()
 
             if resultado:
                 self.cursor.execute(
                     "UPDATE legendas SET tipo=%s, texto=%s WHERE id=%s",
-                    (tipo, texto, resultado[0])
+                    (tipo, texto, resultado[0]),
                 )
             else:
                 self.cursor.execute(
                     "INSERT INTO legendas (ano, mes, dia, tipo, texto) VALUES (%s,%s,%s,%s,%s)",
-                    (ano, mes, dia, tipo, texto)
+                    (ano, mes, dia, tipo, texto),
                 )
 
             self.conn.commit()
-
-            # 🔥 atualiza calendário imediatamente
             self.atualizar_formatacao()
+
+            QtWidgets.QMessageBox.information(
+                self,
+                "Sucesso",
+                "Evento salvo com sucesso.",
+            )
 
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Erro ao salvar", str(e))
 
-    # =========================
-    # CARREGAR E PINTAR CALENDÁRIO
-    # =========================
     def atualizar_formatacao(self):
-        try:
-            # limpa formatações antigas
-            self.calendarWidget.setDateTextFormat(
-                QtCore.QDate(),
-                QtGui.QTextCharFormat()
-            )
+        if not hasattr(self, "calendarWidget") or not self.cursor:
+            return
 
+        try:
+            self.calendarWidget.setDateTextFormat(
+                QtCore.QDate(), QtGui.QTextCharFormat()
+            )
             self.cursor.execute("SELECT ano, mes, dia, tipo FROM legendas")
             eventos = self.cursor.fetchall()
 
             for ano, mes, dia, tipo in eventos:
                 data = QtCore.QDate(ano, mes, dia)
-
                 formato = QtGui.QTextCharFormat()
                 cor = self.legenda.get(tipo, "gray")
-
                 formato.setBackground(QtGui.QColor(cor))
-
                 self.calendarWidget.setDateTextFormat(data, formato)
 
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Erro", str(e))
 
 
-# =========================
-# EXECUÇÃO ISOLADA (teste)
-# =========================
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-
     janela = CalendarioApp()
     janela.show()
-
     sys.exit(app.exec_())

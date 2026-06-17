@@ -15,8 +15,8 @@ class TelaCadastroUC(QtWidgets.QWidget):
 
     def salvar_uc(self):
         horas_uc = self.txt_horasucs.text()
-        posicao = self.txt_posicao.text()
-        nome_uc = self.txt_nome_uc.text()
+        posicao = self.txt_horasucs_2.text()
+        nome_uc = self.txt_horasucs_3.text()
 
         if not horas_uc or not posicao or not nome_uc:
             QtWidgets.QMessageBox.warning(self, "Erro", "Preencha todos os campos!")
@@ -37,8 +37,8 @@ class TelaCadastroUC(QtWidgets.QWidget):
             )
 
             self.txt_horasucs.clear()
-            self.txt_posicao.clear()
-            self.txt_nome_uc.clear()
+            self.txt_horasucs_2.clear()
+            self.txt_horasucs_3.clear()
 
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Erro", str(e))

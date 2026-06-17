@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Relatorio</string>
+     <string>Curso</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_calendario">

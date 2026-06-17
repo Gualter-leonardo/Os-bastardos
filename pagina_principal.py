@@ -4,9 +4,9 @@ import sys
 import os
 
 from cadastro import TelaCadastroCurso
-from relatorio import TelaRelatorio
+from curso import TelaCursos
 from calendario import CalendarioApp
-from legenda import Main as TelaLegenda
+from legenda import TelaLegenda
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -40,7 +40,7 @@ class TelaPrincipal(QMainWindow, BaseTela):
         self.janelas = {}
 
         self.btn_cadastro.clicked.connect(lambda: self.abrir_janela(TelaCadastroCurso))
-        self.btn_relatorio.clicked.connect(lambda: self.abrir_janela(TelaRelatorio))
+        self.btn_relatorio.clicked.connect(lambda: self.abrir_janela(TelaCursos))
         self.btn_calendario.clicked.connect(lambda: self.abrir_janela(TelaCalendario))
         self.btn_legenda.clicked.connect(lambda: self.abrir_janela(TelaLegenda))
         print("Conexoes feitas")

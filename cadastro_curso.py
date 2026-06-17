@@ -22,9 +22,9 @@ class TelaCadastroCursoAlt(QtWidgets.QWidget):
 
     def salvar_cadastro(self):
         carga_horaria = self.txt_tempo.text()
-        curso = self.txt_curso.text()
+        curso = self.txt_nome_curso.text()
         instrutor = self.txt_instrutor.text()
-        quantidade_uc = self.txt_quantidade.text()
+        quantidade_uc = self.txt_quantidade_uc.text()
         inicio = self.txt_inicio.text()
 
         if not carga_horaria or not curso:
@@ -48,9 +48,9 @@ class TelaCadastroCursoAlt(QtWidgets.QWidget):
             )
 
             self.txt_tempo.clear()
-            self.txt_curso.clear()
+            self.txt_nome_curso.clear()
             self.txt_instrutor.clear()
-            self.txt_quantidade.clear()
+            self.txt_quantidade_uc.clear()
             self.txt_inicio.clear()
 
         except Exception as e:
