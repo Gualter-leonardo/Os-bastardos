@@ -1,10 +1,11 @@
 import sys
 from PyQt5 import uic, QtWidgets, QtCore, QtGui
+from PyQt5.QtWidgets import QWizard
 import conexao
 import os
 
 
-class CalendarioApp(QtWidgets.QWidget):
+class CalendarioApp(QtWidgets.QWizard):
     def __init__(self):
         super().__init__()
 

@@ -2,15 +2,24 @@ from PyQt5 import QtCore, QtWidgets, uic
 import conexao
 import os
 
-class TelaLegenda(QtWidgets.QWidget):
+
+class TelaLegenda(QtWidgets.QWizardPage):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "legenda.ui"), self)
+        caminho = os.path.join(
+            os.path.dirname(__file__),
+            "tela",
+            "legenda.ui"
+        )
+
+        uic.loadUi(caminho, self)
+
         self.btn_adicionar.clicked.connect(self.salvar_dados)
 
     def salvar_dados(self):
         inicio = self.data_inicial.date()
+
         legendas = [
             ("FERIADO", self.txt_feriado.text().strip()),
             ("RECESSO", self.txt_recesso.text().strip()),
@@ -25,7 +34,7 @@ class TelaLegenda(QtWidgets.QWidget):
             QtWidgets.QMessageBox.warning(
                 self,
                 "Atenção",
-                "Preencha ao menos um campo antes de adicionar.",
+                "Preencha ao menos um campo antes de adicionar."
             )
             return
 
@@ -33,14 +42,16 @@ class TelaLegenda(QtWidgets.QWidget):
             conn = conexao.conectar()
             cursor = conn.cursor()
 
+            comando = (
+                "INSERT INTO legendas "
+                "(ano, mes, dia, tipo, texto) "
+                "VALUES (%s, %s, %s, %s, %s)"
+            )
+
             for tipo, texto in legendas:
                 if not texto:
                     continue
 
-                comando = (
-                    "INSERT INTO legendas (ano, mes, dia, tipo, texto) "
-                    "VALUES (%s, %s, %s, %s, %s)"
-                )
                 cursor.execute(
                     comando,
                     (
@@ -48,24 +59,29 @@ class TelaLegenda(QtWidgets.QWidget):
                         inicio.month(),
                         inicio.day(),
                         tipo,
-                        texto,
-                    ),
+                        texto
+                    )
                 )
 
             conn.commit()
+
             cursor.close()
             conn.close()
 
             QtWidgets.QMessageBox.information(
                 self,
                 "Sucesso",
-                "Legenda salva com sucesso.",
+                "Legenda salva com sucesso."
             )
 
             self.limpar_campos()
 
         except Exception as e:
-            QtWidgets.QMessageBox.critical(self, "Erro", str(e))
+            QtWidgets.QMessageBox.critical(
+                self,
+                "Erro",
+                str(e)
+            )
 
     def limpar_campos(self):
         self.txt_feriado.clear()
@@ -75,5 +91,11 @@ class TelaLegenda(QtWidgets.QWidget):
         self.txt_capacitacao_orientador.clear()
         self.txt_reuniao.clear()
         self.txt_estagio.clear()
-        self.data_inicial.setDate(QtCore.QDate.currentDate())
-        self.data_final.setDate(QtCore.QDate.currentDate())
+
+        self.data_inicial.setDate(
+            QtCore.QDate.currentDate()
+        )
+
+        self.data_final.setDate(
+            QtCore.QDate.currentDate()
+        )

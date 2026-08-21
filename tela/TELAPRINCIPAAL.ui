@@ -46,8 +46,8 @@ border-radius: 10px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame {
-    background-color: #1E3A5F; /* azul (fundo) */
-    border: 3px solid #0A1F44; /* azul escuro (borda) */
+    background-color: #256ac5; /* azul (fundo) */
+    border: 3px solid #071e46; /* azul escuro (borda) */
     border-radius: 12px;       /* cantos arredondados */
 }</string>
    </property>
@@ -85,7 +85,7 @@ QPushButton {
 }
 
 QLabel {
-    background-color: #5B8DEF;  /* azul claro */
+    background-color: #ec650b;  /* azul claro */
     color: white;               /* texto branco */
     border-radius: 15px;        /* cantos arredondados */
     padding: 6px;               /* espaço interno */
