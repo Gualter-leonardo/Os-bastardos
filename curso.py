@@ -1,35 +1,85 @@
-import sys
-from PyQt5 import uic, QtWidgets
+from PyQt5 import QtWidgets, uic
 import conexao
 import os
 
 
 class TelaCursos(QtWidgets.QWidget):
+
     def __init__(self):
         super().__init__()
-        uic.loadUi(os.path.join(os.path.dirname(__file__), "tela", "cadastrarcurso.ui"), self)
+
+        uic.loadUi(
+            os.path.join(
+                os.path.dirname(__file__),
+                "tela",
+                "curso.ui"
+            ),
+            self
+        )
+
         self.carregar_cursos()
 
     def carregar_cursos(self):
+
         try:
+
             conn = conexao.conectar()
             cursor = conn.cursor()
 
-            comando = "SELECT DISTINCT curso FROM cursos2"
-            cursor.execute(comando)
+            cursor.execute(
+                """
+                SELECT
+                    curso,
+                    quantidade_uc,
+                    carga_horaria,
+                    inicio,
+                    instrutor
+                FROM cursos2
+                """
+            )
 
             resultados = cursor.fetchall()
 
-            self.comboBox.clear()
+            self.tableWidget.setRowCount(
+                len(resultados)
+            )
 
-            for curso in resultados:
-                self.comboBox.addItem(curso[0])
+            self.tableWidget.setColumnCount(5)
+
+            self.tableWidget.setHorizontalHeaderLabels([
+                "Curso",
+                "Qtd UCs",
+                "Carga horária",
+                "Início",
+                "Instrutor"
+            ])
+
+            for linha, row in enumerate(resultados):
+
+                for coluna, valor in enumerate(row):
+
+                    item = QtWidgets.QTableWidgetItem(
+                        str(valor)
+                    )
+
+                    self.tableWidget.setItem(
+                        linha,
+                        coluna,
+                        item
+                    )
+
+            self.tableWidget.resizeColumnsToContents()
 
             cursor.close()
             conn.close()
+
         except Exception as e:
-            print(f"Erro ao carregar cursos: {e}")
 
+            QtWidgets.QMessageBox.critical(
+                self,
+                "Erro",
+                f"Erro ao carregar cursos:\n{e}"
+            )
 
-
-
+    def atualizar(self):
+        self.carregar_cursos()

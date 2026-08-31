@@ -1,77 +1,161 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QMessageBox
-from PyQt5 import uic, QtCore
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import uic
 import sys
 import os
 
-from cadastro import TelaCadastroCurso
+from login import TelaLogin
+from cadastro_curso import TelaCadastroCurso
+from cadastro_uc import TelaCadastroUC
 from curso import TelaCursos
 from calendario import CalendarioApp
-from legenda import TelaLegenda
+
 
 BASE_DIR = os.path.dirname(__file__)
 
 
-# =========================
-# CLASSE BASE PARA TELAS
-# =========================
-class BaseTela:
-    def carregar_ui(self, caminho_ui):
-        caminho = os.path.join(BASE_DIR, caminho_ui)
-        uic.loadUi(caminho, self)
+class TelaPrincipal(QMainWindow):
 
-
-# =========================
-# TELA CALENDÁRIO
-# =========================
-class TelaCalendario(CalendarioApp):
-    pass
-
-
-# =========================
-# TELA PRINCIPAL
-# =========================
-class TelaPrincipal(QMainWindow, BaseTela):
     def __init__(self):
         super().__init__()
-        print("Carregando UI principal")
-        self.carregar_ui("tela/principal.ui")
-        print("UI carregada")
 
-        self.janelas = {}
+        # =========================
+        # CARREGA PRINCIPAL.UI
+        # =========================
 
-        self.btn_cadastro.clicked.connect(lambda: self.abrir_janela(TelaCadastroCurso))
-        self.btn_relatorio.clicked.connect(lambda: self.abrir_janela(TelaCursos))
-        self.btn_calendario.clicked.connect(lambda: self.abrir_janela(TelaCalendario))
-        self.btn_legenda.clicked.connect(lambda: self.abrir_janela(TelaLegenda))
-        print("Conexoes feitas")
+        caminho = os.path.join(
+            BASE_DIR,
+            "tela",
+            "principal.ui"
+        )
 
-    def abrir_janela(self, classe_tela):
-        # garante que a janela ainda existe
-        janela = self.janelas.get(classe_tela)
+        uic.loadUi(caminho, self)
 
-        if janela is None:
-            janela = classe_tela()
+        # =========================
+        # CRIA AS TELAS INTERNAS
+        # =========================
 
-            # importante: evita crash ao fechar manualmente
-            janela.setAttribute(QtCore.Qt.WA_DeleteOnClose, True)
+        self.tela_curso = TelaCadastroCurso()
+        self.tela_uc = TelaCadastroUC()
+        self.tela_relatorio = TelaCursos()
+        self.tela_calendario = CalendarioApp()
 
-            janela.destroyed.connect(lambda: self.janelas.pop(classe_tela, None))
-            self.janelas[classe_tela] = janela
+        # =========================
+        # ADICIONA NO STACKEDWIDGET
+        # =========================
 
-        janela.show()
-        janela.raise_()
-        janela.activateWindow()
+        self.stackedWidget.addWidget(
+            self.tela_curso
+        )
 
+        self.stackedWidget.addWidget(
+            self.tela_uc
+        )
 
+        self.stackedWidget.addWidget(
+            self.tela_relatorio
+        )
+
+        self.stackedWidget.addWidget(
+            self.tela_calendario
+        )
+
+        # =========================
+        # BOTÕES
+        # =========================
+
+        self.btn_cadastro.clicked.connect(
+            self.abrir_cadastro
+        )
+
+        self.btn_uc.clicked.connect(
+            self.abrir_uc
+        )
+
+        self.btn_relatorio.clicked.connect(
+            self.abrir_relatorio
+        )
+
+        self.btn_calendario.clicked.connect(
+            self.abrir_calendario
+        )
+
+        # começa no cadastro
+        self.stackedWidget.setCurrentWidget(
+            self.tela_curso
+        )
+
+    # =========================
+    # NAVEGAÇÃO
+    # =========================
+
+    def abrir_cadastro(self):
+
+        self.stackedWidget.setCurrentWidget(
+            self.tela_curso
+        )
+
+    def abrir_uc(self):
+
+        self.stackedWidget.setCurrentWidget(
+            self.tela_uc
+        )
+
+    def abrir_relatorio(self):
+
+        self.tela_relatorio.atualizar()
+
+        self.stackedWidget.setCurrentWidget(
+            self.tela_relatorio
+        )
+
+    def abrir_calendario(self):
+
+        self.tela_calendario.atualizar_formatacao()
+
+        self.stackedWidget.setCurrentWidget(
+            self.tela_calendario
+        )
 
 
 # =========================
-# EXECUÇÃO
+# SISTEMA
 # =========================
+
+class Sistema:
+
+    def __init__(self):
+
+        self.app = QApplication(sys.argv)
+
+        self.login = TelaLogin()
+        self.principal = TelaPrincipal()
+
+        self.login.login_sucesso.connect(
+            self.abrir_principal
+        )
+
+    def abrir_principal(self):
+
+        self.login.close()
+
+        self.principal.show()
+        self.principal.raise_()
+        self.principal.activateWindow()
+
+    def executar(self):
+
+        self.login.show()
+
+        sys.exit(
+            self.app.exec_()
+        )
+
+
+# =========================
+# INICIAR
+# =========================
+
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
 
-    janela = TelaPrincipal()
-    janela.show()
-
-    sys.exit(app.exec_())
+    sistema = Sistema()
+    sistema.executar()
