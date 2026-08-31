@@ -8,16 +8,27 @@ class TelaCursos(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi(
-            os.path.join(
-                os.path.dirname(__file__),
-                "tela",
-                "curso.ui"
-            ),
-            self
+        # =====================================
+        # CARREGAR A INTERFACE
+        # =====================================
+
+        caminho = os.path.join(
+            os.path.dirname(__file__),
+            "tela",
+            "curso.ui"
         )
 
+        uic.loadUi(caminho, self)
+
+        # =====================================
+        # CARREGAR CURSOS DO BANCO
+        # =====================================
+
         self.carregar_cursos()
+
+    # =========================================
+    # CARREGAR CURSOS
+    # =========================================
 
     def carregar_cursos(self):
 
@@ -29,6 +40,7 @@ class TelaCursos(QtWidgets.QWidget):
             cursor.execute(
                 """
                 SELECT
+                    id_curso,
                     curso,
                     quantidade_uc,
                     carga_horaria,
@@ -40,19 +52,30 @@ class TelaCursos(QtWidgets.QWidget):
 
             resultados = cursor.fetchall()
 
+            # =================================
+            # CONFIGURAR TABELA
+            # =================================
+
+            self.tableWidget.clearContents()
+
             self.tableWidget.setRowCount(
                 len(resultados)
             )
 
-            self.tableWidget.setColumnCount(5)
+            self.tableWidget.setColumnCount(6)
 
             self.tableWidget.setHorizontalHeaderLabels([
+                "ID",
                 "Curso",
                 "Qtd UCs",
-                "Carga horária",
+                "Carga Horária",
                 "Início",
                 "Instrutor"
             ])
+
+            # =================================
+            # PREENCHER TABELA
+            # =================================
 
             for linha, row in enumerate(resultados):
 
@@ -68,6 +91,10 @@ class TelaCursos(QtWidgets.QWidget):
                         item
                     )
 
+            # =================================
+            # AJUSTAR COLUNAS
+            # =================================
+
             self.tableWidget.resizeColumnsToContents()
 
             cursor.close()
@@ -78,8 +105,21 @@ class TelaCursos(QtWidgets.QWidget):
             QtWidgets.QMessageBox.critical(
                 self,
                 "Erro",
-                f"Erro ao carregar cursos:\n{e}"
+                f"Erro ao carregar os cursos:\n\n{e}"
             )
 
+    # =========================================
+    # ATUALIZAR TELA
+    # =========================================
+
     def atualizar(self):
+
         self.carregar_cursos()
+
+    # =========================================
+    # FECHAR
+    # =========================================
+
+    def closeEvent(self, event):
+
+        event.accept()

@@ -8,14 +8,13 @@ class CalendarioApp(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi(
-            os.path.join(
-                os.path.dirname(__file__),
-                "tela",
-                "calendario.ui"
-            ),
-            self
+        caminho = os.path.join(
+            os.path.dirname(__file__),
+            "tela",
+            "calendario.ui"
         )
+
+        uic.loadUi(caminho, self)
 
         self.conn = None
         self.cursor = None
@@ -35,6 +34,7 @@ class CalendarioApp(QtWidgets.QWidget):
             )
 
         if hasattr(self, "calendarWidget"):
+
             self.calendarWidget.clicked.connect(
                 self.data_selecionada
             )
@@ -68,12 +68,13 @@ class CalendarioApp(QtWidgets.QWidget):
             "FIM_CURSO": "black",
             "PROVA": "darkred",
             "AVALIACAO": "darkblue",
-            "TREINAMENTO": "darkgreen",
+            "TREINAMENTO": "darkgreen"
         }
 
     def criar_controles_calendario_fallback(self):
 
         self.combo_tipo = QtWidgets.QComboBox(self)
+
         self.combo_tipo.addItems(
             sorted(self.legenda.keys())
         )
@@ -127,19 +128,21 @@ class CalendarioApp(QtWidgets.QWidget):
         ):
             return
 
-        ano = data.year()
-        mes = data.month()
-        dia = data.day()
-
         try:
 
             self.cursor.execute(
                 """
                 SELECT tipo, texto
                 FROM legendas
-                WHERE ano=%s AND mes=%s AND dia=%s
+                WHERE ano=%s
+                AND mes=%s
+                AND dia=%s
                 """,
-                (ano, mes, dia)
+                (
+                    data.year(),
+                    data.month(),
+                    data.day()
+                )
             )
 
             resultado = self.cursor.fetchone()
@@ -178,30 +181,22 @@ class CalendarioApp(QtWidgets.QWidget):
 
             return
 
-        if not self.cursor:
-
-            QtWidgets.QMessageBox.warning(
-                self,
-                "Aviso",
-                "Não foi possível acessar o banco de dados."
-            )
-
-            return
-
-        ano = self.data_atual.year()
-        mes = self.data_atual.month()
-        dia = self.data_atual.day()
-
-        tipo = self.combo_tipo.currentText()
-        texto = self.texto_evento.toPlainText()
-
         try:
+
+            ano = self.data_atual.year()
+            mes = self.data_atual.month()
+            dia = self.data_atual.day()
+
+            tipo = self.combo_tipo.currentText()
+            texto = self.texto_evento.toPlainText()
 
             self.cursor.execute(
                 """
                 SELECT id
                 FROM legendas
-                WHERE ano=%s AND mes=%s AND dia=%s
+                WHERE ano=%s
+                AND mes=%s
+                AND dia=%s
                 """,
                 (ano, mes, dia)
             )
@@ -247,14 +242,14 @@ class CalendarioApp(QtWidgets.QWidget):
             QtWidgets.QMessageBox.information(
                 self,
                 "Sucesso",
-                "Evento salvo com sucesso!"
+                "Evento salvo com sucesso."
             )
 
         except Exception as e:
 
             QtWidgets.QMessageBox.critical(
                 self,
-                "Erro ao salvar",
+                "Erro",
                 str(e)
             )
 
@@ -267,11 +262,6 @@ class CalendarioApp(QtWidgets.QWidget):
             return
 
         try:
-
-            self.calendarWidget.setDateTextFormat(
-                QtCore.QDate(),
-                QtGui.QTextCharFormat()
-            )
 
             self.cursor.execute(
                 """
@@ -313,15 +303,3 @@ class CalendarioApp(QtWidgets.QWidget):
                 "Erro",
                 str(e)
             )
-
-    def closeEvent(self, event):
-
-        if self.conn:
-
-            try:
-                self.cursor.close()
-                self.conn.close()
-            except:
-                pass
-
-        event.accept()
