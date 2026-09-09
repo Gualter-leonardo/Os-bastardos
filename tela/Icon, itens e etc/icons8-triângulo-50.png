@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="icon.png">
+    <file>banner_senac_v2.png</file>
+    <file>ChatGPT Image 26 de ago. de 2026, 20_52_48.png</file>
+    <file>icons8-circle-32.png</file>
+    <file>icons8-circle-50.png</file>
+    <file>icons8-communication-32.png</file>
+    <file>icons8-fluxograma-32.png</file>
+    <file>icons8-forma-de-papagaio-32.png</file>
+    <file>icons8-graph-32.png.png</file>
+    <file>icons8-losango-32.png.png</file>
+    <file>icons8-management-50.png</file>
+    <file>icons8-polígono-32.png.png</file>
+    <file>icons8-polígono-50.png</file>
+    <file>icons8-quadrado-arredondado-32.png.png</file>
+    <file>icons8-triângulo-32.png.png</file>
+    <file>icons8-triângulo-50.png</file>
+  </qresource>
+</RCC>
