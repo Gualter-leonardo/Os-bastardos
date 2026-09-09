@@ -1,72 +1,157 @@
-import mysql.connector
-from PyQt5 import uic, QtCore, QtWidgets
-import conexao
-import os
+import sys
+
+from PyQt5 import QtWidgets, QtCore
+
 
 class TelaLogin(QtWidgets.QWidget):
+
+    # Sinal enviado quando o login for realizado
     login_sucesso = QtCore.pyqtSignal()
 
     def __init__(self):
         super().__init__()
-        try:
-            ui_path = os.path.join(os.path.dirname(__file__), "tela", "login.ui")
-            print(f"Carregando UI de: {ui_path}")
-            uic.loadUi(ui_path, self)
-            self.setWindowTitle("Login")
-            self.setWindowFlags(self.windowFlags() | QtCore.Qt.Window)
-            self.btn_login.clicked.connect(self.verificar_login)
-            print("TelaLogin inicializada com sucesso")
-        except Exception as e:
-            print(f"Erro ao inicializar TelaLogin: {e}")
-            import traceback
-            traceback.print_exc()
-            raise
+
+        self.setWindowTitle("Login")
+        self.setFixedSize(400, 300)
+
+        # ==========================================
+        # LAYOUT PRINCIPAL
+        # ==========================================
+
+        layout = QtWidgets.QVBoxLayout()
+
+        # ==========================================
+        # TÍTULO
+        # ==========================================
+
+        titulo = QtWidgets.QLabel("LOGIN")
+        titulo.setAlignment(QtCore.Qt.AlignCenter)
+
+        titulo.setStyleSheet("""
+            QLabel {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+        """)
+
+        layout.addWidget(titulo)
+
+        # ==========================================
+        # USUÁRIO
+        # ==========================================
+
+        self.txt_usuario = QtWidgets.QLineEdit()
+        self.txt_usuario.setPlaceholderText("Usuário")
+
+        self.txt_usuario.setStyleSheet("""
+            QLineEdit {
+                padding: 10px;
+                font-size: 14px;
+            }
+        """)
+
+        layout.addWidget(self.txt_usuario)
+
+        # ==========================================
+        # SENHA
+        # ==========================================
+
+        self.txt_senha = QtWidgets.QLineEdit()
+        self.txt_senha.setPlaceholderText("Senha")
+
+        self.txt_senha.setEchoMode(
+            QtWidgets.QLineEdit.Password
+        )
+
+        self.txt_senha.setStyleSheet("""
+            QLineEdit {
+                padding: 10px;
+                font-size: 14px;
+            }
+        """)
+
+        layout.addWidget(self.txt_senha)
+
+        # ==========================================
+        # BOTÃO ENTRAR
+        # ==========================================
+
+        self.btn_entrar = QtWidgets.QPushButton("ENTRAR")
+
+        self.btn_entrar.setStyleSheet("""
+            QPushButton {
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+
+            QPushButton:hover {
+                background-color: #dddddd;
+            }
+        """)
+
+        self.btn_entrar.clicked.connect(
+            self.verificar_login
+        )
+
+        layout.addWidget(self.btn_entrar)
+
+        # ==========================================
+        # MENSAGEM
+        # ==========================================
+
+        self.lbl_mensagem = QtWidgets.QLabel("")
+        self.lbl_mensagem.setAlignment(
+            QtCore.Qt.AlignCenter
+        )
+
+        layout.addWidget(self.lbl_mensagem)
+
+        # ==========================================
+        # APLICAR LAYOUT
+        # ==========================================
+
+        self.setLayout(layout)
+
+    # ==========================================
+    # VERIFICAR LOGIN
+    # ==========================================
 
     def verificar_login(self):
+
         usuario = self.txt_usuario.text()
         senha = self.txt_senha.text()
 
-        if not usuario or not senha:
-            QtWidgets.QMessageBox.warning(self, "Aviso", "Digite usuário e senha!")
-            return
+        # LOGIN TEMPORÁRIO
 
-        comando = "SELECT * FROM informacao WHERE usuario=%s AND senha=%s"
-        dados = (usuario, senha)
+        if usuario == "admin" and senha == "1234":
 
-        try:
-            conn = conexao.conectar()
-            cursor = conn.cursor()
-            cursor.execute(comando, dados)
-            resultado = cursor.fetchone()
-        except mysql.connector.Error as e:
-            QtWidgets.QMessageBox.critical(self, "Erro de Banco", f"Erro ao conectar: {str(e)}")
-            print(f"Erro MySQL: {e}")
-            return
-        except Exception as e:
-            QtWidgets.QMessageBox.critical(self, "Erro", f"Erro inesperado: {str(e)}")
-            print(f"Erro geral: {e}")
-            import traceback
-            traceback.print_exc()
-            return
-        finally:
-            if 'cursor' in locals():
-                try:
-                    cursor.close()
-                except:
-                    pass
-            if 'conn' in locals():
-                try:
-                    conn.close()
-                except:
-                    pass
+            self.lbl_mensagem.setText(
+                "Login realizado com sucesso!"
+            )
 
-        if resultado:
-            print("Login bem-sucedido!")
-            # Mostrar mensagem primeiro
-            QtWidgets.QMessageBox.information(self, "Login", "Login realizado com sucesso")
-            # DEPOIS emitir o sinal para navegar
-            print("Emitindo sinal para abrir página principal...")
+            # Envia sinal para pagina_principal.py
             self.login_sucesso.emit()
+
         else:
-            QtWidgets.QMessageBox.warning(self, "Login", "Usuário ou senha incorretos")
-        
+
+            self.lbl_mensagem.setText(
+                "Usuário ou senha incorretos!"
+            )
+
+            self.txt_senha.clear()
+
+
+# ==========================================
+# TESTAR LOGIN DIRETAMENTE
+# ==========================================
+
+if __name__ == "__main__":
+
+    app = QtWidgets.QApplication(sys.argv)
+
+    janela = TelaLogin()
+    janela.show()
+
+    sys.exit(app.exec_())

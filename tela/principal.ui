@@ -31,7 +31,7 @@
 background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="LOGIN">
      <property name="minimumSize">
@@ -2368,22 +2368,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>41</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-losango-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_40">
          <property name="geometry">
@@ -2406,22 +2390,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_32">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>41</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-fluxograma-32.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_41">
          <property name="geometry">
@@ -2444,22 +2412,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_33">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>41</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-forma-de-papagaio-32.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_42">
          <property name="geometry">
@@ -2482,22 +2434,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_34">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>41</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-communication-32.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_43">
          <property name="geometry">
@@ -2520,22 +2456,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_35">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>47</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-losango-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_44">
          <property name="geometry">
@@ -2558,22 +2478,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_37">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>41</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-triângulo-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_45">
          <property name="geometry">
@@ -2596,22 +2500,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_39">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>61</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-quadrado-arredondado-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_46">
          <property name="geometry">
@@ -2634,22 +2522,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_38">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>2</y>
-            <width>51</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-management-50.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_47">
          <property name="geometry">
@@ -2672,22 +2544,6 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_36">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>47</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../Icon, itens e etc/icons8-triângulo-50.png">:/icon.png/icons8-graph-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_48">
          <property name="geometry">
@@ -3080,8 +2936,6 @@ QCalendarWidget QTableView QHeaderView::section {
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../Icon, itens e etc/icons8-triângulo-50.png"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

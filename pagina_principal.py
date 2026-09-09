@@ -10,7 +10,6 @@ from cadastro_uc import TelaCadastroUC
 from curso import TelaCursos
 from calendario import CalendarioApp
 from legenda import TelaLegenda
-from relatorio import TelaRelatorio
 
 
 # ==========================================
@@ -55,11 +54,11 @@ class TelaPrincipal(QMainWindow):
 
         self.tela_cursos = TelaCursos()
 
+        # Esta tela deve carregar TELACOMPLETA.ui
         self.tela_calendario = CalendarioApp()
 
         self.tela_legenda = TelaLegenda()
 
-        self.tela_relatorio = TelaRelatorio()
 
         # ==================================
         # ADICIONAR AS TELAS AO STACKED
@@ -85,9 +84,6 @@ class TelaPrincipal(QMainWindow):
             self.tela_legenda
         )
 
-        self.stackedWidget.addWidget(
-            self.tela_relatorio
-        )
 
         # ==================================
         # CONECTAR BOTÕES
@@ -109,21 +105,23 @@ class TelaPrincipal(QMainWindow):
             self.abrir_legenda
         )
 
-        self.btn_relatorio.clicked.connect(
-            self.abrir_relatorio
-        )
-
         self.btn_cursos.clicked.connect(
             self.abrir_cursos
         )
 
+
         # ==================================
         # TELA INICIAL
         # ==================================
+        #
+        # Depois do login, a primeira tela
+        # será o calendário (TELACOMPLETA.ui)
+        #
 
         self.stackedWidget.setCurrentWidget(
-            self.tela_cadastro_curso
+            self.tela_calendario
         )
+
 
     # ======================================
     # CADASTRO DE CURSO
@@ -135,6 +133,7 @@ class TelaPrincipal(QMainWindow):
             self.tela_cadastro_curso
         )
 
+
     # ======================================
     # CADASTRO DE UC
     # ======================================
@@ -144,6 +143,7 @@ class TelaPrincipal(QMainWindow):
         self.stackedWidget.setCurrentWidget(
             self.tela_cadastro_uc
         )
+
 
     # ======================================
     # CURSOS
@@ -157,6 +157,7 @@ class TelaPrincipal(QMainWindow):
             self.tela_cursos
         )
 
+
     # ======================================
     # CALENDÁRIO
     # ======================================
@@ -169,6 +170,7 @@ class TelaPrincipal(QMainWindow):
             self.tela_calendario
         )
 
+
     # ======================================
     # LEGENDA
     # ======================================
@@ -177,18 +179,6 @@ class TelaPrincipal(QMainWindow):
 
         self.stackedWidget.setCurrentWidget(
             self.tela_legenda
-        )
-
-    # ======================================
-    # RELATÓRIO
-    # ======================================
-
-    def abrir_relatorio(self):
-
-        self.tela_relatorio.gerar_relatorio()
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_relatorio
         )
 
 
@@ -206,17 +196,20 @@ class Sistema:
 
         self.app = QApplication(sys.argv)
 
+
         # ==================================
         # CRIAR LOGIN
         # ==================================
 
         self.login = TelaLogin()
 
+
         # ==================================
         # CRIAR PRINCIPAL
         # ==================================
 
         self.principal = TelaPrincipal()
+
 
         # ==================================
         # SINAL DO LOGIN
@@ -225,6 +218,7 @@ class Sistema:
         self.login.login_sucesso.connect(
             self.abrir_principal
         )
+
 
     # ======================================
     # ABRIR PRINCIPAL
@@ -236,17 +230,24 @@ class Sistema:
             "Login realizado. Abrindo tela principal..."
         )
 
-        # Fechar login
+
+        # ==================================
+        # FECHAR LOGIN
+        # ==================================
 
         self.login.close()
 
-        # Mostrar principal
+
+        # ==================================
+        # MOSTRAR PRINCIPAL
+        # ==================================
 
         self.principal.show()
 
         self.principal.raise_()
 
         self.principal.activateWindow()
+
 
     # ======================================
     # EXECUTAR
