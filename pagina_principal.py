@@ -5,266 +5,83 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from login import TelaLogin
-from cadastro_curso import TelaCadastroCurso
-from cadastro_uc import TelaCadastroUC
-from curso import TelaCursos
-from calendario import CalendarioApp
-from legenda import TelaLegenda
 
 
-# ==========================================
-# DIRETÓRIO DO PROJETO
-# ==========================================
+# Caminho da pasta do projeto
+BASE_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
 
-BASE_DIR = os.path.dirname(__file__)
-
-
-# ==========================================
-# TELA PRINCIPAL
-# ==========================================
 
 class TelaPrincipal(QMainWindow):
 
     def __init__(self):
-
         super().__init__()
 
-        # ==================================
-        # CARREGAR PRINCIPAL.UI
-        # ==================================
-
+        # Caminho da tela principal
         caminho = os.path.join(
             BASE_DIR,
             "tela",
             "principal.ui"
         )
 
+        print("Carregando principal.ui...")
+
+        # Carrega a tela principal
         uic.loadUi(
             caminho,
             self
         )
 
-        # ==================================
-        # CRIAR AS TELAS INTERNAS
-        # ==================================
+        print("principal.ui carregada!")
 
-        self.tela_cadastro_curso = TelaCadastroCurso()
-
-        self.tela_cadastro_uc = TelaCadastroUC()
-
-        self.tela_cursos = TelaCursos()
-
-        # Esta tela deve carregar TELACOMPLETA.ui
-        self.tela_calendario = CalendarioApp()
-
-        self.tela_legenda = TelaLegenda()
-
-
-        # ==================================
-        # ADICIONAR AS TELAS AO STACKED
-        # ==================================
-
-        self.stackedWidget.addWidget(
-            self.tela_cadastro_curso
-        )
-
-        self.stackedWidget.addWidget(
-            self.tela_cadastro_uc
-        )
-
-        self.stackedWidget.addWidget(
-            self.tela_cursos
-        )
-
-        self.stackedWidget.addWidget(
-            self.tela_calendario
-        )
-
-        self.stackedWidget.addWidget(
-            self.tela_legenda
-        )
-
-
-        # ==================================
-        # CONECTAR BOTÕES
-        # ==================================
-
-        self.btn_cadastro.clicked.connect(
-            self.abrir_cadastro_curso
-        )
-
-        self.btn_uc.clicked.connect(
-            self.abrir_cadastro_uc
-        )
-
-        self.btn_calendario.clicked.connect(
-            self.abrir_calendario
-        )
-
-        self.btn_legenda.clicked.connect(
-            self.abrir_legenda
-        )
-
-        self.btn_cursos.clicked.connect(
-            self.abrir_cursos
-        )
-
-
-        # ==================================
-        # TELA INICIAL
-        # ==================================
-        #
-        # Depois do login, a primeira tela
-        # será o calendário (TELACOMPLETA.ui)
-        #
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_calendario
-        )
-
-
-    # ======================================
-    # CADASTRO DE CURSO
-    # ======================================
-
-    def abrir_cadastro_curso(self):
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_cadastro_curso
-        )
-
-
-    # ======================================
-    # CADASTRO DE UC
-    # ======================================
-
-    def abrir_cadastro_uc(self):
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_cadastro_uc
-        )
-
-
-    # ======================================
-    # CURSOS
-    # ======================================
-
-    def abrir_cursos(self):
-
-        self.tela_cursos.atualizar()
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_cursos
-        )
-
-
-    # ======================================
-    # CALENDÁRIO
-    # ======================================
-
-    def abrir_calendario(self):
-
-        self.tela_calendario.atualizar_formatacao()
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_calendario
-        )
-
-
-    # ======================================
-    # LEGENDA
-    # ======================================
-
-    def abrir_legenda(self):
-
-        self.stackedWidget.setCurrentWidget(
-            self.tela_legenda
-        )
-
-
-# ==========================================
-# SISTEMA
-# ==========================================
 
 class Sistema:
 
     def __init__(self):
 
-        # ==================================
-        # CRIAR APLICAÇÃO
-        # ==================================
-
+        # Cria a aplicação
         self.app = QApplication(sys.argv)
 
-
-        # ==================================
-        # CRIAR LOGIN
-        # ==================================
-
+        # Cria o LOGIN DEFINITIVO
         self.login = TelaLogin()
 
+        # A tela principal ainda não foi criada
+        self.principal = None
 
-        # ==================================
-        # CRIAR PRINCIPAL
-        # ==================================
-
-        self.principal = TelaPrincipal()
-
-
-        # ==================================
-        # SINAL DO LOGIN
-        # ==================================
-
+        # Quando o login for realizado com sucesso,
+        # chama a função abrir_principal
         self.login.login_sucesso.connect(
             self.abrir_principal
         )
 
-
-    # ======================================
-    # ABRIR PRINCIPAL
-    # ======================================
-
     def abrir_principal(self):
 
-        print(
-            "Login realizado. Abrindo tela principal..."
-        )
+        print("Abrindo tela principal...")
 
-
-        # ==================================
-        # FECHAR LOGIN
-        # ==================================
-
+        # Fecha a tela de login
         self.login.close()
 
+        # Cria a tela principal
+        self.principal = TelaPrincipal()
 
-        # ==================================
-        # MOSTRAR PRINCIPAL
-        # ==================================
-
+        # Mostra a tela principal
         self.principal.show()
 
+        # Coloca a janela em primeiro plano
         self.principal.raise_()
-
         self.principal.activateWindow()
-
-
-    # ======================================
-    # EXECUTAR
-    # ======================================
 
     def executar(self):
 
+        # Mostra o login
         self.login.show()
 
+        # Executa o programa
         sys.exit(
             self.app.exec_()
         )
 
-
-# ==========================================
-# INICIAR PROGRAMA
-# ==========================================
 
 if __name__ == "__main__":
 
