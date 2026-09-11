@@ -53,6 +53,10 @@ class TelaLegenda(QtWidgets.QWidget):
                 "ESTAGIO",
                 self.txt_estagio.text().strip()
             )
+            (
+                "final curso",
+                self.txt_final_curso.text().strip()
+            )
         ]
 
         if not any(text for _, text in legendas):
@@ -122,6 +126,7 @@ class TelaLegenda(QtWidgets.QWidget):
         self.txt_capacitacao_orientador.clear()
         self.txt_reuniao.clear()
         self.txt_estagio.clear()
+        self.txt_final_curso.clear()
 
         self.data_inicial.setDate(
             QtCore.QDate.currentDate()
@@ -130,3 +135,4 @@ class TelaLegenda(QtWidgets.QWidget):
         self.data_final.setDate(
             QtCore.QDate.currentDate()
         )
+        self.btn_legenda.clicked.connect(self.salvar_legenda)

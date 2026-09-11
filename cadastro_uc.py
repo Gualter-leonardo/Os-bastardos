@@ -36,9 +36,9 @@ class TelaCadastroUC(QtWidgets.QWidget):
 
     def salvar_uc(self):
 
-        horas_uc = self.txt_horasucs.text()
-        posicao = self.txt_horasucs_2.text()
-        nome_uc = self.txt_horasucs_3.text()
+        horas_uc = self.txt_horas_cs.text()
+        posicao = self.txt_posicao.text()
+        nome_uc = self.txt_nome_uc.text()
 
         if not horas_uc or not posicao or not nome_uc:
 
@@ -73,9 +73,9 @@ class TelaCadastroUC(QtWidgets.QWidget):
                 "UC cadastrada com sucesso!"
             )
 
-            self.txt_horasucs.clear()
-            self.txt_horasucs_2.clear()
-            self.txt_horasucs_3.clear()
+            self.txt_horas_cs.clear()
+            self.txt_posicao.clear()
+            self.txt_nome_uc.clear()
 
         except Exception as e:
 
