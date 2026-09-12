@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtWidgets, uic
+from PyQt5.QtGui import QPixmap
 import conexao
 import os
 

@@ -1,11 +1,32 @@
 from PyQt5 import uic, QtWidgets, QtCore, QtGui
+
+from PyQt5.QtGui import QPixmap
+
 import conexao
 import os
+
+
+class CalendarioMensal(QtWidgets.QCalendarWidget):
+
+    def paintCell(self, painter, rect, date):
+
+        if (
+            date.year() != self.yearShown()
+            or date.month() != self.monthShown()
+        ):
+            return
+
+        super().paintCell(
+            painter,
+            rect,
+            date
+        )
 
 
 class CalendarioApp(QtWidgets.QWidget):
 
     def __init__(self):
+
         super().__init__()
 
         caminho = os.path.join(
@@ -14,15 +35,21 @@ class CalendarioApp(QtWidgets.QWidget):
             "calendario.ui"
         )
 
-        uic.loadUi(caminho, self)
+        uic.loadUi(
+            caminho,
+            self
+        )
 
         self.conn = None
         self.cursor = None
         self.data_atual = None
 
+        self.substituir_calendario()
+
         try:
 
             self.conn = conexao.conectar()
+
             self.cursor = self.conn.cursor()
 
         except Exception as e:
@@ -33,18 +60,30 @@ class CalendarioApp(QtWidgets.QWidget):
                 str(e)
             )
 
-        if hasattr(self, "calendarWidget"):
+        if hasattr(
+            self,
+            "calendarWidget"
+        ):
 
             self.calendarWidget.clicked.connect(
                 self.data_selecionada
             )
 
-        if hasattr(self, "combo_tipo"):
+            self.calendarWidget.currentPageChanged.connect(
+                self.pagina_mudou
+            )
+
+        if hasattr(
+            self,
+            "combo_tipo"
+        ):
 
             self.combo_tipo.clear()
 
             self.combo_tipo.addItems(
-                sorted(self.legenda.keys())
+                sorted(
+                    self.legenda.keys()
+                )
             )
 
         else:
@@ -57,29 +96,156 @@ class CalendarioApp(QtWidgets.QWidget):
     def legenda(self):
 
         return {
+
             "FERIADO": "red",
+
             "RECESSO": "blue",
+
             "PLANEJAMENTO": "orange",
+
             "INICIO_CURSO": "green",
+
             "AULA": "purple",
+
             "CAPACITACAO": "pink",
+
             "REUNIAO": "cyan",
+
             "ESTAGIO": "brown",
+
             "FIM_CURSO": "black",
+
             "PROVA": "darkred",
+
             "AVALIACAO": "darkblue",
+
             "TREINAMENTO": "darkgreen"
         }
 
-    def criar_controles_calendario_fallback(self):
+    def substituir_calendario(self):
 
-        self.combo_tipo = QtWidgets.QComboBox(self)
+        if not hasattr(
+            self,
+            "calendarWidget"
+        ):
+            return
 
-        self.combo_tipo.addItems(
-            sorted(self.legenda.keys())
+        calendario_antigo = self.calendarWidget
+
+        calendario_novo = CalendarioMensal(
+            calendario_antigo.parent()
         )
 
-        self.texto_evento = QtWidgets.QTextEdit(self)
+        calendario_novo.setObjectName(
+            "calendarWidget"
+        )
+
+        calendario_novo.setGeometry(
+            calendario_antigo.geometry()
+        )
+
+        calendario_novo.setLocale(
+            calendario_antigo.locale()
+        )
+
+        calendario_novo.setFirstDayOfWeek(
+            calendario_antigo.firstDayOfWeek()
+        )
+
+        calendario_novo.setGridVisible(
+            calendario_antigo.isGridVisible()
+        )
+
+        calendario_novo.setVerticalHeaderFormat(
+            calendario_antigo.verticalHeaderFormat()
+        )
+
+        calendario_novo.setHorizontalHeaderFormat(
+            calendario_antigo.horizontalHeaderFormat()
+        )
+
+        calendario_novo.setNavigationBarVisible(
+            calendario_antigo.isNavigationBarVisible()
+        )
+
+        calendario_novo.setSelectionMode(
+            calendario_antigo.selectionMode()
+        )
+
+        calendario_novo.setMinimumDate(
+            calendario_antigo.minimumDate()
+        )
+
+        calendario_novo.setMaximumDate(
+            calendario_antigo.maximumDate()
+        )
+
+        calendario_novo.setSelectedDate(
+            calendario_antigo.selectedDate()
+        )
+
+        layout = calendario_antigo.parentWidget().layout()
+
+        if layout is not None:
+
+            indice = layout.indexOf(
+                calendario_antigo
+            )
+
+            if indice >= 0:
+
+                layout.removeWidget(
+                    calendario_antigo
+                )
+
+                calendario_antigo.setParent(
+                    None
+                )
+
+                calendario_antigo.deleteLater()
+
+                layout.insertWidget(
+                    indice,
+                    calendario_novo
+                )
+
+            else:
+
+                calendario_antigo.hide()
+
+        else:
+
+            calendario_antigo.hide()
+
+            calendario_novo.show()
+
+        self.calendarWidget = calendario_novo
+
+        self.calendarWidget.show()
+
+    def pagina_mudou(
+        self,
+        ano,
+        mes
+    ):
+
+        self.atualizar_formatacao()
+
+    def criar_controles_calendario_fallback(self):
+
+        self.combo_tipo = QtWidgets.QComboBox(
+            self
+        )
+
+        self.combo_tipo.addItems(
+            sorted(
+                self.legenda.keys()
+            )
+        )
+
+        self.texto_evento = QtWidgets.QTextEdit(
+            self
+        )
 
         self.btn_salvar = QtWidgets.QPushButton(
             "Salvar evento",
@@ -92,52 +258,82 @@ class CalendarioApp(QtWidgets.QWidget):
         )
 
         self.combo_tipo.setGeometry(
-            20, 20, 240, 30
+            20,
+            20,
+            240,
+            30
         )
 
         self.texto_evento.setGeometry(
-            20, 60, 240, 120
+            20,
+            60,
+            240,
+            120
         )
 
         self.btn_salvar.setGeometry(
-            20, 190, 240, 35
+            20,
+            190,
+            240,
+            35
         )
 
         self.label_data.setGeometry(
-            20, 235, 240, 25
+            20,
+            235,
+            240,
+            25
         )
 
         self.btn_salvar.clicked.connect(
             self.salvar_evento
         )
 
-    def data_selecionada(self, data):
+    def data_selecionada(
+        self,
+        data
+    ):
 
         self.data_atual = data
 
-        if hasattr(self, "label_data"):
+        if hasattr(
+            self,
+            "label_data"
+        ):
 
             self.label_data.setText(
-                f"{data.day()}/{data.month()}/{data.year()}"
+                f"{data.day()}/"
+                f"{data.month()}/"
+                f"{data.year()}"
             )
 
-        if (
-            not self.cursor
-            or not hasattr(self, "combo_tipo")
-            or not hasattr(self, "texto_evento")
+        if not self.cursor:
+            return
+
+        if not hasattr(
+            self,
+            "combo_tipo"
+        ):
+            return
+
+        if not hasattr(
+            self,
+            "texto_evento"
         ):
             return
 
         try:
 
+            sql = (
+                "SELECT tipo, texto "
+                "FROM legendas "
+                "WHERE ano=%s "
+                "AND mes=%s "
+                "AND dia=%s"
+            )
+
             self.cursor.execute(
-                """
-                SELECT tipo, texto
-                FROM legendas
-                WHERE ano=%s
-                AND mes=%s
-                AND dia=%s
-                """,
+                sql,
                 (
                     data.year(),
                     data.month(),
@@ -181,36 +377,57 @@ class CalendarioApp(QtWidgets.QWidget):
 
             return
 
+        if not self.cursor:
+
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Aviso",
+                "Não foi possível conectar ao banco de dados."
+            )
+
+            return
+
         try:
 
             ano = self.data_atual.year()
+
             mes = self.data_atual.month()
+
             dia = self.data_atual.day()
 
             tipo = self.combo_tipo.currentText()
+
             texto = self.texto_evento.toPlainText()
 
+            sql = (
+                "SELECT id "
+                "FROM legendas "
+                "WHERE ano=%s "
+                "AND mes=%s "
+                "AND dia=%s"
+            )
+
             self.cursor.execute(
-                """
-                SELECT id
-                FROM legendas
-                WHERE ano=%s
-                AND mes=%s
-                AND dia=%s
-                """,
-                (ano, mes, dia)
+                sql,
+                (
+                    ano,
+                    mes,
+                    dia
+                )
             )
 
             resultado = self.cursor.fetchone()
 
             if resultado:
 
+                sql = (
+                    "UPDATE legendas "
+                    "SET tipo=%s, texto=%s "
+                    "WHERE id=%s"
+                )
+
                 self.cursor.execute(
-                    """
-                    UPDATE legendas
-                    SET tipo=%s, texto=%s
-                    WHERE id=%s
-                    """,
+                    sql,
                     (
                         tipo,
                         texto,
@@ -220,12 +437,14 @@ class CalendarioApp(QtWidgets.QWidget):
 
             else:
 
+                sql = (
+                    "INSERT INTO legendas "
+                    "(ano, mes, dia, tipo, texto) "
+                    "VALUES (%s, %s, %s, %s, %s)"
+                )
+
                 self.cursor.execute(
-                    """
-                    INSERT INTO legendas
-                    (ano, mes, dia, tipo, texto)
-                    VALUES (%s,%s,%s,%s,%s)
-                    """,
+                    sql,
                     (
                         ano,
                         mes,
@@ -255,24 +474,41 @@ class CalendarioApp(QtWidgets.QWidget):
 
     def atualizar_formatacao(self):
 
-        if (
-            not hasattr(self, "calendarWidget")
-            or not self.cursor
+        if not hasattr(
+            self,
+            "calendarWidget"
         ):
+            return
+
+        calendario = self.calendarWidget
+
+        if not self.cursor:
             return
 
         try:
 
+            ano_atual = calendario.yearShown()
+
+            mes_atual = calendario.monthShown()
+
+            sql = (
+                "SELECT ano, mes, dia, tipo "
+                "FROM legendas"
+            )
+
             self.cursor.execute(
-                """
-                SELECT ano, mes, dia, tipo
-                FROM legendas
-                """
+                sql
             )
 
             eventos = self.cursor.fetchall()
 
             for ano, mes, dia, tipo in eventos:
+
+                if (
+                    ano != ano_atual
+                    or mes != mes_atual
+                ):
+                    continue
 
                 data = QtCore.QDate(
                     ano,
@@ -291,7 +527,11 @@ class CalendarioApp(QtWidgets.QWidget):
                     QtGui.QColor(cor)
                 )
 
-                self.calendarWidget.setDateTextFormat(
+                formato.setForeground(
+                    QtGui.QColor("white")
+                )
+
+                calendario.setDateTextFormat(
                     data,
                     formato
                 )
@@ -303,3 +543,4 @@ class CalendarioApp(QtWidgets.QWidget):
                 "Erro",
                 str(e)
             )
+        self.substituir_calendario()

@@ -3,6 +3,7 @@ import os
 from PyQt5 import uic
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QPixmap
 
 
 # Caminho da pasta do projeto

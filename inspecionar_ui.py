@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from PyQt5.QtGui import QPixmap
 import os
 
 ui_path = os.path.join("tela", "login.ui")

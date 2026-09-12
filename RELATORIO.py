@@ -1,5 +1,6 @@
 import mysql.connector
 from PyQt5 import uic, QtWidgets
+from PyQt5.QtGui import QPixmap
 import os
 
 
