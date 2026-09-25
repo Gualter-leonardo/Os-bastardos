@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1799</width>
+    <width>1920</width>
     <height>1016</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
    <widget class="QTabWidget" name="TAB3">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
       <width>1861</width>
       <height>1101</height>
@@ -905,38 +905,6 @@ background-color: rgb(255, 142, 62);
         </property>
        </widget>
       </widget>
-      <widget class="QFrame" name="frame_57">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>50</y>
-         <width>1761</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_20">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>-60</y>
-          <width>1771</width>
-          <height>331</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="image.png">:/banner_senac_v2.png</pixmap>
-        </property>
-       </widget>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="B">
@@ -968,8 +936,8 @@ background-color: rgb(0, 0, 255);</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>10</y>
+         <x>80</x>
+         <y>20</y>
          <width>1621</width>
          <height>291</height>
         </rect>
@@ -978,7 +946,7 @@ background-color: rgb(0, 0, 255);</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>banner_senac_v2.png</pixmap>
+        <pixmap>../Icon, itens e etc/banner_senac_v2.png</pixmap>
        </property>
       </widget>
       <widget class="QFrame" name="frame_19">
@@ -986,8 +954,8 @@ background-color: rgb(0, 0, 255);</string>
         <rect>
          <x>610</x>
          <y>310</y>
-         <width>671</width>
-         <height>651</height>
+         <width>651</width>
+         <height>661</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1044,8 +1012,8 @@ background-color: rgb(0, 0, 255);</string>
        <widget class="QFrame" name="frame_21">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>150</y>
+          <x>70</x>
+          <y>140</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -1108,8 +1076,8 @@ background-color: rgb(0, 0, 255);</string>
        <widget class="QFrame" name="frame_23">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>110</y>
+          <x>70</x>
+          <y>100</y>
           <width>120</width>
           <height>31</height>
          </rect>
@@ -1157,8 +1125,8 @@ background-color: rgb(0, 0, 255);</string>
        <widget class="QFrame" name="frame_24">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>190</y>
+          <x>70</x>
+          <y>180</y>
           <width>120</width>
           <height>31</height>
          </rect>
@@ -1166,304 +1134,6 @@ background-color: rgb(0, 0, 255);</string>
         <property name="styleSheet">
          <string notr="true">QFrame {
   background-color: rgb(51, 157, 255);
-    background-image: url(:/logo/banner_senac_v2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border: 1px solid #D5DCE5;
-    border-radius: 18px;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_19">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>131</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-           <pointsize>8</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>INICIO CURSO</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QFrame" name="frame_25">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>230</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-    background-color: rgb(51, 157, 255);
-    background-image: url(:/logo/banner_senac_v2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border: 1px solid #D5DCE5;
-    border-radius: 18px;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_22">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>-20</y>
-           <width>121</width>
-           <height>71</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-           <pointsize>6</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>REUNIÃO CONS. CLASSE</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QLineEdit" name="txt_aula_inaugural">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>230</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_planejamento">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>190</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_recesso">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>150</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_feriado">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>110</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btn_legenda">
-        <property name="geometry">
-         <rect>
-          <x>250</x>
-          <y>440</y>
-          <width>171</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial Black</family>
-          <pointsize>14</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(69, 159, 255);
-background-color: rgb(255, 142, 62);
-    border-radius: 20px;</string>
-        </property>
-        <property name="text">
-         <string>CADASTRAR </string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_capacitacao_orientador">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>270</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_reuniao">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>270</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_estagio">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>190</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_final_curso">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>230</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QFrame" name="frame_27">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>270</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-   background-color: rgb(51, 157, 255);
-    background-image: url(:/logo/banner_senac_v2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border: 1px solid #D5DCE5;
-    border-radius: 18px;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_21">
-         <property name="geometry">
-          <rect>
-           <x>-10</x>
-           <y>-20</y>
-           <width>151</width>
-           <height>71</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-           <pointsize>7</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>  CAPACIT . ORIENTADOR</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QFrame" name="frame_28">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>270</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-   background-color: rgb(51, 157, 255);
     background-image: url(:/logo/banner_senac_v2.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1500,11 +1170,213 @@ background-color: rgb(255, 142, 62);
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frame_30">
+       <widget class="QFrame" name="frame_25">
         <property name="geometry">
          <rect>
-          <x>350</x>
-          <y>230</y>
+          <x>70</x>
+          <y>220</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+    background-color: rgb(51, 157, 255);
+    background-image: url(:/logo/banner_senac_v2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 1px solid #D5DCE5;
+    border-radius: 18px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_19">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <pointsize>8</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>INICIO CURSO</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLineEdit" name="txt_aula_inaugural">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>220</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_planejamento">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>180</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_recesso">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>140</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_feriado">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>100</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_legenda">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>540</y>
+          <width>171</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial Black</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(69, 159, 255);
+background-color: rgb(255, 142, 62);
+    border-radius: 20px;</string>
+        </property>
+        <property name="text">
+         <string>CADASTRAR </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_capacitacao_orientador">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>260</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_reuniao">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>300</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_estagio">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>340</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_final_curso">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>380</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_27">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>260</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -1526,7 +1398,55 @@ background-color: rgb(255, 142, 62);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_24">
+        <widget class="QLabel" name="label_21">
+         <property name="geometry">
+          <rect>
+           <x>-10</x>
+           <y>-20</y>
+           <width>141</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <pointsize>7</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>  CAPACIT . ORIENTADOR</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_28">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>300</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+   background-color: rgb(51, 157, 255);
+    background-image: url(:/logo/banner_senac_v2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 1px solid #D5DCE5;
+    border-radius: 18px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_22">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -1538,21 +1458,21 @@ background-color: rgb(255, 142, 62);
          <property name="font">
           <font>
            <family>Arial Black</family>
-           <pointsize>8</pointsize>
+           <pointsize>6</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
          <property name="text">
-          <string>TERMINO CURSO</string>
+          <string>REUNIÃO CONS. CLASSE</string>
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frame_31">
+       <widget class="QFrame" name="frame_30">
         <property name="geometry">
          <rect>
-          <x>350</x>
-          <y>190</y>
+          <x>70</x>
+          <y>340</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -1596,76 +1516,11 @@ background-color: rgb(255, 142, 62);
          </property>
         </widget>
        </widget>
-       <widget class="QLineEdit" name="txt_final_curso_2">
+       <widget class="QFrame" name="frame_31">
         <property name="geometry">
          <rect>
-          <x>480</x>
-          <y>110</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QFrame" name="frame_80">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>110</y>
-          <width>120</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-   
-	background-color: rgb(51, 157, 255);
-    background-image: url(:/logo/banner_senac_v2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border: 1px solid #D5DCE5;
-  border-radius: 20px;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_93">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>-20</y>
-           <width>121</width>
-           <height>71</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-           <pointsize>8</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string> INICIO EVENTO</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QFrame" name="frame_81">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>150</y>
+          <x>70</x>
+          <y>380</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -1687,7 +1542,7 @@ background-color: rgb(255, 142, 62);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_94">
+        <widget class="QLabel" name="label_24">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -1705,25 +1560,9 @@ background-color: rgb(255, 142, 62);
           </font>
          </property>
          <property name="text">
-          <string>TERMINO EVENTO</string>
+          <string>TERMINO CURSO</string>
          </property>
         </widget>
-       </widget>
-       <widget class="QLineEdit" name="txt_final_curso_3">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>150</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
        </widget>
       </widget>
      </widget>
@@ -1735,8 +1574,8 @@ background-color: rgb(255, 142, 62);
      <widget class="QFrame" name="frame_29">
       <property name="geometry">
        <rect>
-        <x>-50</x>
-        <y>20</y>
+        <x>0</x>
+        <y>10</y>
         <width>1881</width>
         <height>1011</height>
        </rect>
@@ -1755,9 +1594,9 @@ background-color: rgb(0, 0, 255);</string>
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>50</y>
-         <width>1081</width>
-         <height>221</height>
+         <y>10</y>
+         <width>1641</width>
+         <height>291</height>
         </rect>
        </property>
        <property name="text">
@@ -2021,38 +1860,6 @@ background-color: rgb(255, 142, 62);
         </column>
        </widget>
       </widget>
-      <widget class="QFrame" name="frame_58">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>30</y>
-         <width>1821</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_49">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>-70</y>
-          <width>1581</width>
-          <height>381</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="image.png">:/banner_senac_v2.png</pixmap>
-        </property>
-       </widget>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
@@ -2078,6 +1885,22 @@ background-color: rgb(0, 0, 255);</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QLabel" name="label_31">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>10</y>
+         <width>1641</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../Icon, itens e etc/banner_senac_v2.png</pixmap>
+       </property>
+      </widget>
       <widget class="QFrame" name="frame_37">
        <property name="geometry">
         <rect>
@@ -2185,7 +2008,7 @@ QCalendarWidget QTableView QHeaderView::section {
          <set>Qt::ImhNone</set>
         </property>
         <property name="currentIndex">
-         <number>5</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="JAN">
          <attribute name="title">
@@ -2497,22 +2320,6 @@ QCalendarWidget QTableView QHeaderView::section {
            <pixmap>:/icon.png/icons8-losango-32.png.png</pixmap>
           </property>
          </widget>
-         <widget class="QLabel" name="label_50">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>51</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-circle-50 1.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_40">
          <property name="geometry">
@@ -2549,22 +2356,6 @@ QCalendarWidget QTableView QHeaderView::section {
           </property>
           <property name="pixmap">
            <pixmap>:/icon.png/icons8-fluxograma-32.png</pixmap>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_51">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>51</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-fluxograma-32.png</pixmap>
           </property>
          </widget>
         </widget>
@@ -2605,22 +2396,6 @@ QCalendarWidget QTableView QHeaderView::section {
            <pixmap>:/icon.png/icons8-forma-de-papagaio-32.png</pixmap>
           </property>
          </widget>
-         <widget class="QLabel" name="label_52">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>31</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-losango-32.png.png</pixmap>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_42">
          <property name="geometry">
@@ -2659,170 +2434,8 @@ QCalendarWidget QTableView QHeaderView::section {
            <pixmap>:/icon.png/icons8-communication-32.png</pixmap>
           </property>
          </widget>
-         <widget class="QLabel" name="label_53">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>51</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-triângulo-50.png</pixmap>
-          </property>
-         </widget>
         </widget>
-        <widget class="QFrame" name="frame_44">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>360</y>
-           <width>51</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QFrame {
-    background-color: #3F8EF7;
-    border-radius: 15px;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="label_37">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>51</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-management-50.png</pixmap>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QFrame" name="frame_45">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>510</y>
-           <width>51</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QFrame {
-    background-color: #3F8EF7;
-    border-radius: 15px;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="label_39">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>51</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>:/icon.png/icons8-quadrado-arredondado-32.png.png</pixmap>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_58">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>51</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-quadrado-arredondado-32.png.png</pixmap>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QFrame" name="frame_46">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>440</y>
-           <width>51</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QFrame {
-    background-color: #3F8EF7;
-    border-radius: 15px;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QFrame" name="frame_43">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>31</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_57">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>71</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="image.png">:/icons8-communication-32.png</pixmap>
-           </property>
-          </widget>
-         </widget>
-        </widget>
-        <widget class="QFrame" name="frame_47">
+        <widget class="QFrame" name="frame_43">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -2843,23 +2456,7 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_36">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>47</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>:/icon.png/icons8-graph-32.png.png</pixmap>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_55">
+         <widget class="QLabel" name="label_35">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -2872,7 +2469,159 @@ QCalendarWidget QTableView QHeaderView::section {
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="image.png">:/icons8-graph-32.png.png</pixmap>
+           <pixmap>:/icon.png/icons8-losango-32.png.png</pixmap>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_44">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>420</y>
+           <width>51</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+    background-color: #3F8EF7;
+    border-radius: 15px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_37">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>0</y>
+            <width>41</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>:/icon.png/icons8-triângulo-32.png.png</pixmap>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_45">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>550</y>
+           <width>51</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+    background-color: #3F8EF7;
+    border-radius: 15px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_39">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>61</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>:/icon.png/icons8-quadrado-arredondado-32.png.png</pixmap>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_46">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>490</y>
+           <width>51</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+    background-color: #3F8EF7;
+    border-radius: 15px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_38">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>2</y>
+            <width>51</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>:/icon.png/icons8-management-50.png</pixmap>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_47">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>360</y>
+           <width>51</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+    background-color: #3F8EF7;
+    border-radius: 15px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_36">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>47</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>:/icon.png/icons8-graph-32.png.png</pixmap>
           </property>
          </widget>
         </widget>
@@ -3044,11 +2793,53 @@ QCalendarWidget QTableView QHeaderView::section {
           </property>
          </widget>
         </widget>
-        <widget class="QFrame" name="frame_53">
+        <widget class="QFrame" name="frame_52">
          <property name="geometry">
           <rect>
            <x>70</x>
            <y>290</y>
+           <width>271</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(69, 159, 255);
+    border-radius: 20px;
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_44">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>AULA INAUGURAL</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_53">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>360</y>
            <width>271</width>
            <height>51</height>
           </rect>
@@ -3090,7 +2881,7 @@ QCalendarWidget QTableView QHeaderView::section {
          <property name="geometry">
           <rect>
            <x>70</x>
-           <y>360</y>
+           <y>420</y>
            <width>271</width>
            <height>51</height>
           </rect>
@@ -3131,8 +2922,8 @@ QCalendarWidget QTableView QHeaderView::section {
         <widget class="QFrame" name="frame_55">
          <property name="geometry">
           <rect>
-           <x>80</x>
-           <y>440</y>
+           <x>70</x>
+           <y>490</y>
            <width>271</width>
            <height>51</height>
           </rect>
@@ -3173,8 +2964,8 @@ QCalendarWidget QTableView QHeaderView::section {
         <widget class="QFrame" name="frame_56">
          <property name="geometry">
           <rect>
-           <x>80</x>
-           <y>510</y>
+           <x>70</x>
+           <y>550</y>
            <width>271</width>
            <height>51</height>
           </rect>
@@ -3214,70 +3005,6 @@ QCalendarWidget QTableView QHeaderView::section {
         </widget>
        </widget>
       </widget>
-      <widget class="QFrame" name="frame_26">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>120</width>
-         <height>80</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QFrame" name="frame_59">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>40</y>
-          <width>120</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QFrame" name="frame_60">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>10</y>
-         <width>1771</width>
-         <height>301</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_31">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>0</y>
-          <width>1691</width>
-          <height>291</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="image.png">:/banner_senac_v2.png</pixmap>
-        </property>
-       </widget>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
@@ -3287,8 +3014,8 @@ QCalendarWidget QTableView QHeaderView::section {
      <widget class="QWidget" name="widget_2" native="true">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>0</y>
+        <x>-30</x>
+        <y>-10</y>
         <width>1911</width>
         <height>1081</height>
        </rect>
@@ -3317,7 +3044,7 @@ background-color: rgb(0, 0, 255);
  border-radius: 20px;
 </string>
        </property>
-       <widget class="QFrame" name="frame_52">
+       <widget class="QFrame" name="frame_26">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -3337,7 +3064,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_35">
+        <widget class="QLabel" name="label_20">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -3507,7 +3234,7 @@ background-color: rgb(0, 0, 255);
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frame_61">
+       <widget class="QFrame" name="frame_57">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3527,7 +3254,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_38">
+        <widget class="QLabel" name="label_49">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -3566,7 +3293,7 @@ background-color: rgb(0, 0, 255);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_62">
+       <widget class="QFrame" name="frame_58">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3586,7 +3313,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_44">
+        <widget class="QLabel" name="label_50">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -3625,7 +3352,7 @@ background-color: rgb(0, 0, 255);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_63">
+       <widget class="QFrame" name="frame_59">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3645,7 +3372,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_54">
+        <widget class="QLabel" name="label_51">
          <property name="geometry">
           <rect>
            <x>40</x>
@@ -3666,7 +3393,7 @@ background-color: rgb(0, 0, 255);
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frame_64">
+       <widget class="QFrame" name="frame_60">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -3686,7 +3413,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_56">
+        <widget class="QLabel" name="label_52">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -3733,7 +3460,7 @@ background-color: rgb(0, 0, 255);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_65">
+       <widget class="QFrame" name="frame_61">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3753,7 +3480,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_59">
+        <widget class="QLabel" name="label_53">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -3774,7 +3501,7 @@ background-color: rgb(0, 0, 255);
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frame_66">
+       <widget class="QFrame" name="frame_62">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -3794,7 +3521,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_60">
+        <widget class="QLabel" name="label_54">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -3841,7 +3568,7 @@ background-color: rgb(0, 0, 255);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_67">
+       <widget class="QFrame" name="frame_63">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3861,7 +3588,7 @@ background-color: rgb(0, 0, 255);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_61">
+        <widget class="QLabel" name="label_55">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -3881,6 +3608,19 @@ background-color: rgb(0, 0, 255);
           <string>DOCENTES</string>
          </property>
         </widget>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>550</y>
+          <width>321</width>
+          <height>141</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
        <widget class="QDateTimeEdit" name="dateTimeEdit">
         <property name="geometry">
@@ -3921,7 +3661,7 @@ background-color: rgb(255, 132, 44);
          <string>CADASTRAR</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_68">
+       <widget class="QFrame" name="frame_64">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -3941,7 +3681,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_62">
+        <widget class="QLabel" name="label_56">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -3975,7 +3715,7 @@ background-color: rgb(255, 132, 44);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_69">
+       <widget class="QFrame" name="frame_65">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -3995,7 +3735,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="label_63">
+        <widget class="QLabel" name="label_57">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -4016,21 +3756,8 @@ background-color: rgb(255, 132, 44);
          </property>
         </widget>
        </widget>
-       <widget class="QListWidget" name="listWidget">
-        <property name="geometry">
-         <rect>
-          <x>35</x>
-          <y>550</y>
-          <width>291</width>
-          <height>151</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-       </widget>
       </widget>
-      <widget class="QFrame" name="frame_70">
+      <widget class="QFrame" name="frame_66">
        <property name="geometry">
         <rect>
          <x>920</x>
@@ -4055,7 +3782,7 @@ background-color: rgb(255, 132, 44);
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="label_64">
+       <widget class="QLabel" name="label_58">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -4129,7 +3856,7 @@ background-color: rgb(255, 132, 44);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_71">
+       <widget class="QFrame" name="frame_67">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -4147,7 +3874,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QFrame" name="frame_72">
+        <widget class="QFrame" name="frame_68">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -4167,7 +3894,7 @@ background-color: rgb(255, 132, 44);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_65">
+         <widget class="QLabel" name="label_59">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4200,7 +3927,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_66">
+         <widget class="QLabel" name="label_60">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4231,7 +3958,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_67">
+         <widget class="QLabel" name="label_61">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -4262,7 +3989,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_68">
+         <widget class="QLabel" name="label_62">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4293,7 +4020,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_69">
+         <widget class="QLabel" name="label_63">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4311,6 +4038,28 @@ background-color: rgb(255, 132, 44);
            <string>CARGA</string>
           </property>
          </widget>
+        </widget>
+        <widget class="QLabel" name="label_64">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>30</y>
+           <width>181</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century</family>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>         CURSO</string>
+         </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_7">
          <property name="geometry">
@@ -4376,7 +4125,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_71">
+         <widget class="QLabel" name="label_65">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -4403,24 +4152,6 @@ background-color: rgb(255, 132, 44);
            <width>131</width>
            <height>31</height>
           </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_28">
-         <property name="geometry">
-          <rect>
-           <x>200</x>
-           <y>40</y>
-           <width>181</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>4</pointsize>
-          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -4481,7 +4212,7 @@ background-color: rgb(255, 132, 44);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_73">
+       <widget class="QFrame" name="frame_69">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -4499,7 +4230,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QFrame" name="frame_74">
+        <widget class="QFrame" name="frame_70">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -4519,7 +4250,7 @@ background-color: rgb(255, 132, 44);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_72">
+         <widget class="QLabel" name="label_66">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4552,7 +4283,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_73">
+         <widget class="QLabel" name="label_67">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4583,7 +4314,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_74">
+         <widget class="QLabel" name="label_68">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -4614,7 +4345,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_75">
+         <widget class="QLabel" name="label_69">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4645,7 +4376,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_76">
+         <widget class="QLabel" name="label_70">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4663,6 +4394,28 @@ background-color: rgb(255, 132, 44);
            <string>CARGA</string>
           </property>
          </widget>
+        </widget>
+        <widget class="QLabel" name="label_71">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>30</y>
+           <width>181</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century</family>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>         CURSO</string>
+         </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_17">
          <property name="geometry">
@@ -4728,7 +4481,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_78">
+         <widget class="QLabel" name="label_72">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -4755,24 +4508,6 @@ background-color: rgb(255, 132, 44);
            <width>131</width>
            <height>31</height>
           </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_27">
-         <property name="geometry">
-          <rect>
-           <x>200</x>
-           <y>40</y>
-           <width>181</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>4</pointsize>
-          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -4833,7 +4568,7 @@ background-color: rgb(255, 132, 44);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_75">
+       <widget class="QFrame" name="frame_71">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -4851,7 +4586,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QFrame" name="frame_76">
+        <widget class="QFrame" name="frame_72">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -4871,7 +4606,7 @@ background-color: rgb(255, 132, 44);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_79">
+         <widget class="QLabel" name="label_73">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4904,7 +4639,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_80">
+         <widget class="QLabel" name="label_74">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4935,7 +4670,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_81">
+         <widget class="QLabel" name="label_75">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -4966,7 +4701,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_82">
+         <widget class="QLabel" name="label_76">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -4997,7 +4732,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_83">
+         <widget class="QLabel" name="label_77">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -5015,6 +4750,28 @@ background-color: rgb(255, 132, 44);
            <string>CARGA</string>
           </property>
          </widget>
+        </widget>
+        <widget class="QLabel" name="label_78">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>30</y>
+           <width>181</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century</family>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>         CURSO</string>
+         </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_12">
          <property name="geometry">
@@ -5080,7 +4837,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_85">
+         <widget class="QLabel" name="label_79">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -5107,24 +4864,6 @@ background-color: rgb(255, 132, 44);
            <width>131</width>
            <height>31</height>
           </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_29">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>30</y>
-           <width>181</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>4</pointsize>
-          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -5185,7 +4924,7 @@ background-color: rgb(255, 132, 44);
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame_77">
+       <widget class="QFrame" name="frame_73">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -5203,7 +4942,7 @@ background-color: rgb(255, 132, 44);
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QFrame" name="frame_78">
+        <widget class="QFrame" name="frame_74">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -5223,7 +4962,7 @@ background-color: rgb(255, 132, 44);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_86">
+         <widget class="QLabel" name="label_80">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -5256,7 +4995,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_87">
+         <widget class="QLabel" name="label_81">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -5287,7 +5026,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_88">
+         <widget class="QLabel" name="label_82">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -5318,7 +5057,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_89">
+         <widget class="QLabel" name="label_83">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -5349,7 +5088,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_90">
+         <widget class="QLabel" name="label_84">
           <property name="geometry">
            <rect>
             <x>20</x>
@@ -5367,6 +5106,28 @@ background-color: rgb(255, 132, 44);
            <string>CARGA</string>
           </property>
          </widget>
+        </widget>
+        <widget class="QLabel" name="label_85">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>30</y>
+           <width>181</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century</family>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>         CURSO</string>
+         </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_22">
          <property name="geometry">
@@ -5432,7 +5193,7 @@ background-color: rgb(255, 132, 44);
          <property name="styleSheet">
           <string notr="true">background-color: rgb(85, 170, 255);</string>
          </property>
-         <widget class="QLabel" name="label_92">
+         <widget class="QLabel" name="label_86">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -5464,24 +5225,6 @@ background-color: rgb(255, 132, 44);
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_30">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>30</y>
-           <width>181</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>4</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
        </widget>
       </widget>
      </widget>
@@ -5490,8 +5233,6 @@ background-color: rgb(255, 132, 44);
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="image.png"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
