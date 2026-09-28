@@ -1,13 +1,10 @@
 import mysql.connector
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtGui import QPixmap
 import os
 
 
 class TelaRelatorio(QtWidgets.QWidget):
-
     def __init__(self):
-
         super().__init__()
 
         ui_path = os.path.join(
@@ -16,32 +13,20 @@ class TelaRelatorio(QtWidgets.QWidget):
             "relatorio.ui"
         )
 
-        try:
+        uic.loadUi(ui_path, self)
 
-            uic.loadUi(
-                ui_path,
-                self
-            )
-
-            self.btn_carregar.clicked.connect(
-                self.gerar_relatorio
-            )
-
-        except Exception as e:
-
-            print(
-                f"Erro ao carregar relatorio.ui: {e}"
-            )
+        self.btn_carregar.clicked.connect(self.gerar_relatorio)
 
     def gerar_relatorio(self):
+        conexao = None
+        cursor = None
 
         try:
-
             conexao = mysql.connector.connect(
                 host="localhost",
                 user="root",
                 password="",
-                database="test"
+                database="sistema_cursos"
             )
 
             cursor = conexao.cursor()
@@ -54,17 +39,14 @@ class TelaRelatorio(QtWidgets.QWidget):
                     carga_horaria,
                     instrutor
                 FROM cursos2
+                ORDER BY id_curso DESC
                 """
             )
 
             dados = cursor.fetchall()
 
-            self.txt_tabela.setRowCount(0)
-
-            self.txt_tabela.setRowCount(
-                len(dados)
-            )
-
+            self.txt_tabela.clearContents()
+            self.txt_tabela.setRowCount(len(dados))
             self.txt_tabela.setColumnCount(4)
 
             self.txt_tabela.setHorizontalHeaderLabels([
@@ -75,24 +57,26 @@ class TelaRelatorio(QtWidgets.QWidget):
             ])
 
             for linha, row_data in enumerate(dados):
-
                 for coluna, valor in enumerate(row_data):
-
                     self.txt_tabela.setItem(
                         linha,
                         coluna,
                         QtWidgets.QTableWidgetItem(
-                            str(valor)
+                            "" if valor is None else str(valor)
                         )
                     )
 
-            cursor.close()
-            conexao.close()
+            self.txt_tabela.resizeColumnsToContents()
 
         except mysql.connector.Error as e:
-
             QtWidgets.QMessageBox.critical(
                 self,
                 "Erro no banco",
                 str(e)
             )
+
+        finally:
+            if cursor:
+                cursor.close()
+            if conexao:
+                conexao.close()

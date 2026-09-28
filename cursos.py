@@ -1,17 +1,11 @@
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtGui import QPixmap
 import conexao
 import os
 
 
 class TelaCursos(QtWidgets.QWidget):
-
     def __init__(self):
         super().__init__()
-
-        # =====================================
-        # CARREGAR A INTERFACE
-        # =====================================
 
         caminho = os.path.join(
             os.path.dirname(__file__),
@@ -20,21 +14,13 @@ class TelaCursos(QtWidgets.QWidget):
         )
 
         uic.loadUi(caminho, self)
-
-        # =====================================
-        # CARREGAR CURSOS DO BANCO
-        # =====================================
-
         self.carregar_cursos()
 
-    # =========================================
-    # CARREGAR CURSOS
-    # =========================================
-
     def carregar_cursos(self):
+        conn = None
+        cursor = None
 
         try:
-
             conn = conexao.conectar()
             cursor = conn.cursor()
 
@@ -48,22 +34,15 @@ class TelaCursos(QtWidgets.QWidget):
                     inicio,
                     instrutor
                 FROM cursos2
+                ORDER BY id_curso DESC
                 """
             )
 
             resultados = cursor.fetchall()
 
-            # =================================
-            # CONFIGURAR TABELA
-            # =================================
-
             self.tableWidget.clearContents()
-
-            self.tableWidget.setRowCount(
-                len(resultados)
-            )
-
             self.tableWidget.setColumnCount(6)
+            self.tableWidget.setRowCount(len(resultados))
 
             self.tableWidget.setHorizontalHeaderLabels([
                 "ID",
@@ -74,53 +53,33 @@ class TelaCursos(QtWidgets.QWidget):
                 "Instrutor"
             ])
 
-            # =================================
-            # PREENCHER TABELA
-            # =================================
-
             for linha, row in enumerate(resultados):
-
                 for coluna, valor in enumerate(row):
-
-                    item = QtWidgets.QTableWidgetItem(
-                        str(valor)
-                    )
-
                     self.tableWidget.setItem(
                         linha,
                         coluna,
-                        item
+                        QtWidgets.QTableWidgetItem(
+                            "" if valor is None else str(valor)
+                        )
                     )
-
-            # =================================
-            # AJUSTAR COLUNAS
-            # =================================
 
             self.tableWidget.resizeColumnsToContents()
 
-            cursor.close()
-            conn.close()
-
         except Exception as e:
-
             QtWidgets.QMessageBox.critical(
                 self,
                 "Erro",
                 f"Erro ao carregar os cursos:\n\n{e}"
             )
 
-    # =========================================
-    # ATUALIZAR TELA
-    # =========================================
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
 
     def atualizar(self):
-
         self.carregar_cursos()
 
-    # =========================================
-    # FECHAR
-    # =========================================
-
     def closeEvent(self, event):
-
         event.accept()

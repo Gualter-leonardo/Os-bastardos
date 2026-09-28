@@ -1,90 +1,60 @@
-import sys
 import os
+from PyQt5 import uic, QtWidgets
 
-from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtGui import QPixmap
-from login import TelaLogin
-
-
-# Caminho da pasta do projeto
-BASE_DIR = os.path.dirname(
-    os.path.abspath(__file__)
-)
+from cadastrocurso import TelaCadastroCurso
+from cadastroUC import TelaCadastroUC
+from cursos import TelaCursos
+from legenda import TelaLegenda
+from relatorio import TelaRelatorio
 
 
-class TelaPrincipal(QMainWindow):
-
+class TelaPrincipal(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Caminho da tela principal
         caminho = os.path.join(
-            BASE_DIR,
+            os.path.dirname(__file__),
             "tela",
             "principal.ui"
         )
 
-        print("Carregando principal.ui...")
+        uic.loadUi(caminho, self)
 
-        # Carrega a tela principal
-        uic.loadUi(
-            caminho,
-            self
-        )
+        # Só conecte estes botões se eles realmente existirem
+        # no seu principal.ui.
+        if hasattr(self, "btn_cadastro_curso"):
+            self.btn_cadastro_curso.clicked.connect(
+                lambda: self.abrir_janela(TelaCadastroCurso)
+            )
 
-        print("principal.ui carregada!")
+        if hasattr(self, "btn_cadastro_uc"):
+            self.btn_cadastro_uc.clicked.connect(
+                lambda: self.abrir_janela(TelaCadastroUC)
+            )
 
+        if hasattr(self, "btn_cursos"):
+            self.btn_cursos.clicked.connect(
+                lambda: self.abrir_janela(TelaCursos)
+            )
 
-class Sistema:
+        if hasattr(self, "btn_legenda"):
+            self.btn_legenda.clicked.connect(
+                lambda: self.abrir_janela(TelaLegenda)
+            )
 
-    def __init__(self):
+        if hasattr(self, "btn_relatorio"):
+            self.btn_relatorio.clicked.connect(
+                lambda: self.abrir_janela(TelaRelatorio)
+            )
 
-        # Cria a aplicação
-        self.app = QApplication(sys.argv)
+    def abrir_janela(self, classe):
+        janela = classe()
 
-        # Cria o LOGIN DEFINITIVO
-        self.login = TelaLogin()
+        # Mantém a janela viva enquanto a principal estiver aberta.
+        if not hasattr(self, "_janelas"):
+            self._janelas = []
 
-        # A tela principal ainda não foi criada
-        self.principal = None
-
-        # Quando o login for realizado com sucesso,
-        # chama a função abrir_principal
-        self.login.login_sucesso.connect(
-            self.abrir_principal
-        )
-
-    def abrir_principal(self):
-
-        print("Abrindo tela principal...")
-
-        # Fecha a tela de login
-        self.login.close()
-
-        # Cria a tela principal
-        self.principal = TelaPrincipal()
-
-        # Mostra a tela principal
-        self.principal.show()
-
-        # Coloca a janela em primeiro plano
-        self.principal.raise_()
-        self.principal.activateWindow()
-
-    def executar(self):
-
-        # Mostra o login
-        self.login.show()
-
-        # Executa o programa
-        sys.exit(
-            self.app.exec_()
-        )
-
-
-if __name__ == "__main__":
-
-    sistema = Sistema()
-
-    sistema.executar()
+        self._janelas.append(janela)
+        janela.show()
+        janela.raise_()
+        janela.activateWindow()
