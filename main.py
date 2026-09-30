@@ -27,7 +27,7 @@ class Sistema:
             # Guardar a referência antes de exibir evita que o Python descarte
             # a janela ao sair deste método.
             self.principal = nova_tela
-            nova_tela.show()
+            nova_tela.showMaximized()
             nova_tela.raise_()
             nova_tela.activateWindow()
             if not nova_tela.isVisible():
@@ -46,6 +46,12 @@ class Sistema:
             )
 
     def executar(self):
+        area = self.app.primaryScreen().availableGeometry()
+        self.login.resize(
+            min(self.login.width(), area.width()),
+            min(self.login.height(), area.height()),
+        )
+        self.login.move(area.center() - self.login.rect().center())
         self.login.show()
         self.login.raise_()
         self.login.activateWindow()

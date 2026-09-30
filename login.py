@@ -14,10 +14,24 @@ class TelaLogin(QtWidgets.QMainWindow):
 
         caminho = os.path.join(BASE_DIR, "tela", "login.ui")
         uic.loadUi(caminho, self)
+        self.resize(760, 820)
+        self._ajustar_fundo_login()
 
         self.btn_entrar.clicked.connect(self.verificar_login)
         self.txt_senha.returnPressed.connect(self.verificar_login)
         self.txt_senha.setEchoMode(QtWidgets.QLineEdit.Password)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        self._ajustar_fundo_login()
+
+    def _ajustar_fundo_login(self):
+        if not hasattr(self, "centralwidget") or not hasattr(self, "frame_19"):
+            return
+        self.frame.setGeometry(self.centralwidget.rect())
+        x = max(0, (self.frame.width() - self.frame_19.width()) // 2)
+        y = max(0, (self.frame.height() - self.frame_19.height()) // 2)
+        self.frame_19.move(x, y)
 
     def verificar_login(self):
         usuario = self.txt_usuario.text().strip()

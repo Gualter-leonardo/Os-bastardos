@@ -3,6 +3,7 @@ from datetime import date, datetime, timedelta
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import mysql.connector
 import conexao
+from ajuste_principal import adaptar_tela_principal
 
 
 class TelaPrincipal(QtWidgets.QMainWindow):
@@ -33,8 +34,38 @@ class TelaPrincipal(QtWidgets.QMainWindow):
         ui_xml = ui_xml.replace(
             "../Icon, itens e etc/banner_senac_v2.png", banner
         )
+        ui_xml = ui_xml.replace(
+            "<pixmap>banner_senac_v2.png</pixmap>",
+            f"<pixmap>{banner}</pixmap>",
+        )
+
+        # Resolve também os ícones que o Designer gravou como recursos Qt.
+        pasta_tela = os.path.join(os.path.dirname(__file__), "tela")
+        imagens = {
+            ":/icon.png/icons8-losango-32.png.png": "icons8-losango-32.png.png",
+            ":/icons8-losango-32.png.png": "icons8-losango-32.png.png",
+            ":/icons8-circle-50 1.png": "icons8-circle-50 1.png",
+            ":/icon.png/icons8-fluxograma-32.png": "icons8-fluxograma-32.png",
+            ":/icons8-fluxograma-32.png": "icons8-fluxograma-32.png",
+            ":/icon.png/icons8-forma-de-papagaio-32.png": "icons8-pol#U00edgono-32.png.png",
+            ":/icon.png/icons8-communication-32.png": "icons8-communication-32.png",
+            ":/icons8-communication-32.png": "icons8-communication-32.png",
+            ":/icons8-triângulo-50.png": "icons8-tri#U00e2ngulo-50.png",
+            ":/icons8-management-50.png": "icons8-management-50.png",
+            ":/icon.png/icons8-quadrado-arredondado-32.png.png": "icons8-quadrado-arredondado-32.png.png",
+            ":/icons8-quadrado-arredondado-32.png.png": "icons8-quadrado-arredondado-32.png.png",
+            ":/icon.png/icons8-graph-32.png.png": "icons8-graph-32.png.png",
+            ":/icons8-graph-32.png.png": "icons8-graph-32.png.png",
+        }
+        for referencia, nome_arquivo in imagens.items():
+            arquivo_imagem = os.path.abspath(
+                os.path.join(pasta_tela, nome_arquivo)
+            ).replace("\\", "/")
+            if os.path.isfile(arquivo_imagem):
+                ui_xml = ui_xml.replace(referencia, arquivo_imagem)
         from io import StringIO
         uic.loadUi(StringIO(ui_xml), self)
+        adaptar_tela_principal(self)
 
         self._configurar_telas()
         self._conectar_botoes()
